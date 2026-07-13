@@ -44,8 +44,4 @@ correspondre à un des 15 types définis dans `lib/types.ts`.
 Sous 768px de largeur, le deck bascule automatiquement en mode lecture (slides
 empilées, défilement vertical) — même URL, même contenu.
 
-## Déploiement
 
-1. Pousser ce dépôt sur GitHub
-2. Importer le dépôt sur [vercel.com/new](https://vercel.com/new)
-3. Aucune variable d'environnement requise — déploiement immédiat
