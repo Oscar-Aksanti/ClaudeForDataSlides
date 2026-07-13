@@ -1,4 +1,11 @@
 {
+  "featured": {
+    "eyebrow": "Ressources importantes de la formation",
+    "title": "Toutes les ressources de la semaine, au même endroit",
+    "description": "Retrouve tous les fichiers nécessaires — supports, exercices, modèles — dans ce dossier partagé, mis à jour au fil de la semaine.",
+    "url": "https://drive.google.com/drive/folders/18--EI7VCqUymzEVV3Okb2_U4fy3z38gL?usp=drive_link",
+    "cta": "Cliquer ici"
+  },
   "resources": [
     {
       "title": "Échantillons Power BI officiels Microsoft",

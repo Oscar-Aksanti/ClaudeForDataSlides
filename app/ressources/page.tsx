@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { ArrowLeft, ExternalLink } from "lucide-react";
-import { RESOURCES } from "@/lib/content";
+import { ArrowLeft, ArrowRight, ExternalLink, FolderOpen } from "lucide-react";
+import { FEATURED_RESOURCE, RESOURCES } from "@/lib/content";
 import type { ResourceLink } from "@/lib/types";
 
 function groupByCategory(resources: ResourceLink[]) {
@@ -43,6 +43,28 @@ export default function RessourcesPage() {
       </div>
 
       <div className="mx-auto max-w-3xl px-6 py-10 sm:px-16">
+        <a
+          href={FEATURED_RESOURCE.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group mb-10 flex items-center gap-5 rounded-card border-2 border-signal bg-[linear-gradient(160deg,#fff,#FDF0EC)] px-6 py-5 transition-shadow hover:shadow-[0_8px_28px_-8px_rgba(217,119,87,0.35)]"
+        >
+          <div className="flex h-11 w-11 flex-none items-center justify-center rounded-full bg-signal text-white">
+            <FolderOpen className="h-5 w-5" />
+          </div>
+          <div className="flex-1">
+            <p className="font-mono text-[10.5px] font-medium uppercase tracking-wide text-signal">
+              {FEATURED_RESOURCE.eyebrow}
+            </p>
+            <p className="mt-0.5 text-[15px] font-semibold text-ink">{FEATURED_RESOURCE.title}</p>
+            <p className="mt-1 text-[12.5px] leading-relaxed text-slate">{FEATURED_RESOURCE.description}</p>
+          </div>
+          <div className="flex flex-none items-center gap-1.5 rounded-full bg-ink px-4 py-2 text-[12.5px] font-medium text-white transition-colors group-hover:bg-signal">
+            {FEATURED_RESOURCE.cta}
+            <ArrowRight className="h-3.5 w-3.5" />
+          </div>
+        </a>
+
         {grouped.map(([category, items]) => (
           <div key={category} className="mb-9">
             <h2 className="mb-3 text-[15px] font-semibold text-ink">{category}</h2>

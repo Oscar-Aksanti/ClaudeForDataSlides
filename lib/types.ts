@@ -197,3 +197,11 @@ export interface ResourceLink {
   license: string;
   day?: number;
 }
+
+export interface FeaturedResource {
+  eyebrow: string;
+  title: string;
+  description: string;
+  url: string;
+  cta: string;
+}
