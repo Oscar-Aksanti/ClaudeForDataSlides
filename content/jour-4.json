@@ -1,0 +1,500 @@
+{
+  "day": 4,
+  "title": "Portfolio complet + stratégie carrière",
+  "date": "2026-07-16",
+  "objective": "Cadrer et démarrer un projet capstone complet à partir d'un cas réel au choix, le documenter en portfolio, et optimiser son profil LinkedIn pour la recherche d'opportunités.",
+  "deliverables": [
+    "Projet capstone cadré : question métier, hypothèses, données collectées et nettoyées",
+    "Portfolio en ligne avec au moins ce projet documenté",
+    "Profil LinkedIn optimisé, réécrit en direct pendant la session"
+  ],
+  "chapters": [
+    { "title": "Ouverture", "minutes": 3, "firstSlideId": "cover" },
+    { "title": "Le programme de la semaine", "minutes": 3, "firstSlideId": "programme" },
+    { "title": "Concepts — méthodologie de projet & éthique", "minutes": 20, "firstSlideId": "cadrer-projet" },
+    { "title": "Atelier — capstone, partie 1 : cadrage", "minutes": 30, "firstSlideId": "menu-cas-capstone" },
+    { "title": "Atelier — capstone, partie 2 : analyse", "minutes": 20, "firstSlideId": "analyser-avec-claude" },
+    { "title": "Concepts — portfolio & LinkedIn qui convertissent", "minutes": 20, "firstSlideId": "bon-portfolio-data" },
+    { "title": "Concepts — trouver des opportunités", "minutes": 12, "firstSlideId": "ou-chercher-opportunites" },
+    { "title": "Résumé & livrables", "minutes": 5, "firstSlideId": "resume-jour4" },
+    { "title": "Clôture", "minutes": 2, "firstSlideId": "cloture" }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Jour 04 · Formations4data",
+      "title": ["Portfolio complet +", "stratégie carrière"],
+      "highlight": "stratégie carrière",
+      "subtitle": "On n'apprend plus de nouvel outil aujourd'hui — on assemble tout ce qui a été vu en un vrai projet de portfolio, sur un cas que tu choisis toi-même.",
+      "meta": "MAÎTRISEZ L'ANALYSE DES DONNÉES AVEC CLAUDE · 16 JUILLET 2026",
+      "metaHighlight": "16 JUILLET 2026",
+      "presenterNotes": "Marquer le changement de nature de la journée : plus d'outil nouveau, de l'assemblage et de la mise en valeur de ce qui a déjà été appris."
+    },
+    {
+      "id": "programme",
+      "type": "day-map",
+      "eyebrow": "Notre semaine ensemble",
+      "title": "Le programme complet",
+      "activeDay": 4,
+      "days": [
+        { "num": "01", "title": "Découverte de l'écosystème Claude", "subtitle": "Dashboard publié en ligne" },
+        { "num": "02", "title": "Excel & Power BI boostés par Claude", "subtitle": "2 projets portfolio" },
+        { "num": "03", "title": "Coding : SQL, Python, R", "subtitle": "1 projet transversal" },
+        { "num": "04", "title": "Portfolio complet + stratégie carrière", "subtitle": "Site en ligne + plan 90 jours" },
+        { "num": "05", "title": "Présentation & lancement", "subtitle": "Ton plan des 90 jours démarre" }
+      ],
+      "presenterNotes": "Rappeler que ce jour prépare directement la soutenance du Jour 5 — tout ce qui est cadré aujourd'hui sera présenté demain."
+    },
+    {
+      "id": "cadrer-projet",
+      "type": "step-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Cadrer un projet avant d'ouvrir Excel ou Python",
+      "steps": [
+        { "title": "Poser la question métier", "detail": "Une phrase claire, pas un thème vague" },
+        { "title": "Formuler des hypothèses", "detail": "Ce qu'on s'attend à trouver, et pourquoi ça compte" },
+        { "title": "Écrire un plan d'analyse", "detail": "Quelles données, quelles étapes, quel livrable final" }
+      ],
+      "presenterNotes": "Ce cadrage en 3 étapes évite le piège le plus fréquent d'un projet portfolio : partir directement dans les données sans savoir quelle question on cherche à répondre."
+    },
+    {
+      "id": "definir-succes-projet",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "À quoi ressemble un capstone réussi",
+      "lead": "Pas la complexité technique — la clarté de la démonstration.",
+      "items": [
+        { "num": "01", "title": "Une question métier précise", "detail": "Un recruteur doit comprendre le sujet en une phrase." },
+        { "num": "02", "title": "Une méthode expliquée, pas juste un résultat", "detail": "Montrer comment on est arrivé à la conclusion compte autant que la conclusion." },
+        { "num": "03", "title": "Une recommandation actionnable", "detail": "Le projet doit se terminer par une décision possible, pas juste un constat." }
+      ],
+      "presenterNotes": "Rassurer : un projet simple mais clair vaut mieux qu'un projet techniquement impressionnant mais confus."
+    },
+    {
+      "id": "bonnes-questions-avant",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Les questions à se poser avant de commencer",
+      "items": [
+        { "num": "01", "title": "Qui va lire ce projet ?", "detail": "Un recruteur technique et un recruteur RH n'attendent pas la même chose." },
+        { "num": "02", "title": "Quelles données sont réellement accessibles ?", "detail": "Mieux vaut un jeu de données simple et complet qu'un jeu ambitieux mais introuvable." },
+        { "num": "03", "title": "Combien de temps ce projet peut-il prendre ?", "detail": "Un capstone réaliste en une journée vaut mieux qu'un projet abandonné à moitié fait." }
+      ],
+      "presenterNotes": "Encourager à choisir un scope réaliste pour la journée — le projet pourra toujours être enrichi après la formation."
+    },
+    {
+      "id": "ethique-principes",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1 — Éthique",
+      "title": "Trois principes pour un usage responsable de la donnée",
+      "items": [
+        { "num": "01", "title": "Anonymiser par défaut", "detail": "Même dans un projet d'entraînement, retirer les identifiants directs devient un réflexe." },
+        { "num": "02", "title": "Vérifier la représentativité", "detail": "Un échantillon qui exclut une partie de la population fausse toute conclusion tirée de lui." },
+        { "num": "03", "title": "Rester transparent sur la méthode", "detail": "Dire clairement quelles données ont été utilisées et comment, jamais les présenter comme plus complètes qu'elles ne le sont." }
+      ],
+      "presenterNotes": "Ces trois principes seront directement appliqués sur le projet capstone que chacun choisit dans quelques slides."
+    },
+    {
+      "id": "consentement-collecte",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1 — Éthique",
+      "title": "Si tu collectes de vraies données pour ton capstone",
+      "lead": "Valable si le projet s'appuie sur une enquête ou des données de personnes réelles autour de toi.",
+      "items": [
+        { "num": "01", "title": "Informer avant de collecter", "detail": "Les personnes doivent savoir à quoi serviront leurs réponses." },
+        { "num": "02", "title": "Ne collecter que ce qui est nécessaire", "detail": "Chaque champ demandé doit avoir une utilité claire pour l'analyse." }
+      ],
+      "presenterNotes": "Concerne surtout les apprenants qui choisiraient de bâtir leur capstone sur une mini-enquête personnelle plutôt que sur un des cas fournis."
+    },
+    {
+      "id": "biais-exemple",
+      "type": "comparison",
+      "eyebrow": "Chapitre 1 — Éthique",
+      "title": "Un échantillon biaisé change la conclusion",
+      "columns": [
+        {
+          "label": "Échantillon biaisé",
+          "items": ["Collecté uniquement par SMS", "Exclut les foyers sans téléphone actif", "Conclusion : \"tout va bien\" — fausse"]
+        },
+        {
+          "label": "Échantillon représentatif",
+          "items": ["Combine plusieurs canaux de collecte", "Inclut les zones rurales et les plus vulnérables", "Conclusion fiable, sur laquelle on peut agir"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Le biais n'est presque jamais volontaire — il vient souvent du canal de collecte le plus facile, pas du plus représentatif."
+    },
+    {
+      "id": "exemple-biais-donnees-table",
+      "type": "data-table",
+      "eyebrow": "Chapitre 1 — Éthique",
+      "title": "Repérer un biais de collecte",
+      "columns": ["Source de collecte", "Ce qu'elle capture vraiment", "Biais introduit"],
+      "rows": [
+        { "cells": ["Enquête par SMS uniquement", "Seulement les foyers avec téléphone actif", "Exclut les plus vulnérables, souvent les plus concernés"], "critical": true },
+        { "cells": ["Collecte en zone urbaine seulement", "Uniquement les profils urbains", "Sous-représente la réalité rurale"], "critical": true },
+        { "cells": ["Volontaires auto-inscrits", "Les personnes déjà motivées à participer", "Sur-représente les cas déjà engagés"], "critical": false }
+      ],
+      "presenterNotes": "Faire deviner le biais avant de révéler la colonne de droite — l'exercice ancre mieux la notion qu'une explication directe."
+    },
+    {
+      "id": "lois-protection-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 1 — Rappel",
+      "title": "La loi de protection des données de ton pays",
+      "lead": "Vu au Jour 1 — un rappel utile avant de manipuler des données pour ton propre capstone.",
+      "columns": ["Pays", "Loi", "Autorité", "Sanction maximale"],
+      "rows": [
+        { "cells": ["Sénégal", "Loi n°2008-12", "CDP", "100M FCFA + peines pénales"], "critical": false },
+        { "cells": ["Côte d'Ivoire", "Loi n°2013-450", "ARTCI", "500M FCFA (récidive)"], "critical": false },
+        { "cells": ["Nigeria", "NDPA 2023", "NDPC", "% du chiffre d'affaires"], "critical": false },
+        { "cells": ["Kenya", "Data Protection Act 2019", "ODPC", "5M KES ou 1% du CA"], "critical": false }
+      ],
+      "presenterNotes": "Répétition volontaire du tableau du Jour 1 — mieux vaut le revoir une deuxième fois juste avant de s'en servir que de compter sur un souvenir de trois jours."
+    },
+    {
+      "id": "menu-cas-capstone",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Le projet capstone",
+      "title": "Choisis ton cas pour la suite de la semaine",
+      "lead": "Trois cas nouveaux, ou continuer à approfondir un cas déjà vu cette semaine — à toi de choisir.",
+      "items": [
+        { "num": "01", "title": "Distribution FMCG", "detail": "Optimiser la couverture de points de vente pour un distributeur régional." },
+        { "num": "02", "title": "Coopérative agricole", "detail": "Traçabilité et paiement des producteurs d'une coopérative de cacao." },
+        { "num": "03", "title": "Résiliation télécom / mobile money", "detail": "Prédire quels abonnés prépayés risquent de partir." },
+        { "num": "04", "title": "Approfondir un cas déjà vu", "detail": "Le programme ONG du Jour 2 ou le portefeuille microfinance du Jour 3, en plus de détail." }
+      ],
+      "presenterNotes": "Laisser 2-3 minutes de réflexion avant de continuer — le choix du cas engage le reste de la journée et de la soutenance de demain."
+    },
+    {
+      "id": "cas-fmcg-detail",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Option 1",
+      "title": "Distribution FMCG — le contexte",
+      "lead": "Exemple pédagogique inspiré de pratiques réelles de distribution en Afrique — pas les données d'une entreprise nommée.",
+      "items": [
+        { "num": "01", "title": "Le problème", "detail": "Un distributeur ne sait pas quels points de vente informels visiter en priorité." },
+        { "num": "02", "title": "La décision à informer", "detail": "Quels points de vente ajouter ou retirer d'une tournée de livraison." }
+      ],
+      "presenterNotes": "Insister sur le fait que la donnée informelle (kiosques, marchés) domine le commerce africain — un vrai défi de collecte à mentionner si le temps le permet."
+    },
+    {
+      "id": "cas-fmcg-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 2 — Option 1",
+      "title": "Colonnes types du dataset FMCG",
+      "columns": ["Point de vente", "Type de canal", "Stock restant", "Rupture"],
+      "rows": [
+        { "cells": ["PDV-014", "Kiosque", "3 unités", "Non"], "critical": false },
+        { "cells": ["PDV-027", "Marché ouvert", "0 unité", "Oui"], "critical": true },
+        { "cells": ["PDV-041", "Supérette", "22 unités", "Non"], "critical": false }
+      ],
+      "presenterNotes": "Ce type de structure de données se construit facilement avec un tableau synthétique — pas besoin d'un vrai accès terrain pour s'exercer."
+    },
+    {
+      "id": "cas-cacao-detail",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Option 2",
+      "title": "Coopérative cacao — le contexte",
+      "lead": "Inspiré de dispositifs réels de traçabilité (Ghana, Côte d'Ivoire) — exemple pédagogique, pas des données d'une coopérative nommée.",
+      "items": [
+        { "num": "01", "title": "Le problème", "detail": "Vérifier que chaque producteur est payé au juste prix et que les parcelles sont traçables." },
+        { "num": "02", "title": "La décision à informer", "detail": "Quelles parcelles ou coopératives présentent un risque de non-conformité." }
+      ],
+      "presenterNotes": "Bon cas pour qui s'intéresse à l'agro-industrie — mentionner la dimension traçabilité/export si des apprenants viennent de ce secteur."
+    },
+    {
+      "id": "cas-cacao-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 2 — Option 2",
+      "title": "Colonnes types du dataset coopérative",
+      "columns": ["Producteur", "Coopérative", "Volume (kg)", "Prix payé / kg"],
+      "rows": [
+        { "cells": ["PROD-102", "Coop Kivu Nord", "340 kg", "1 200 FC"], "critical": false },
+        { "cells": ["PROD-118", "Coop Kivu Nord", "12 kg", "1 200 FC"], "critical": true },
+        { "cells": ["PROD-145", "Coop Sud-Lac", "280 kg", "950 FC"], "critical": false }
+      ],
+      "presenterNotes": "Le volume anormalement faible (12 kg) est un signal à faire remarquer — soit une erreur de saisie, soit un cas réellement particulier à vérifier."
+    },
+    {
+      "id": "cas-mobile-money-detail",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Option 3",
+      "title": "Résiliation mobile — le contexte",
+      "lead": "Inspiré d'études sectorielles publiques sur le prépayé en Afrique — exemple pédagogique, pas les données d'un opérateur nommé.",
+      "items": [
+        { "num": "01", "title": "Le problème", "detail": "Le prépayé ne \"résilie\" jamais formellement — il devient juste inactif." },
+        { "num": "02", "title": "La décision à informer", "detail": "Quels abonnés cibler avec une offre de rétention avant qu'ils ne partent." }
+      ],
+      "presenterNotes": "Point pédagogique intéressant : la résiliation silencieuse (pas de bouton \"annuler\") change complètement la façon de la détecter."
+    },
+    {
+      "id": "cas-mobile-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 2 — Option 3",
+      "title": "Colonnes types du dataset mobile",
+      "columns": ["Abonné", "Ancienneté (jours)", "Taux d'appels coupés", "Dernière activité"],
+      "rows": [
+        { "cells": ["AB-3391", "410", "2%", "il y a 2 jours"], "critical": false },
+        { "cells": ["AB-3402", "38", "14%", "il y a 41 jours"], "critical": true },
+        { "cells": ["AB-3417", "220", "3%", "il y a 5 jours"], "critical": false }
+      ],
+      "presenterNotes": "Un taux d'appels coupés élevé combiné à une longue inactivité est le signal combiné classique d'un abonné en train de partir."
+    },
+    {
+      "id": "choisir-son-cas",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 2",
+      "title": "Quel cas correspond à ton profil",
+      "rows": [
+        { "want": "Tu aimes la logistique et le terrain", "tool": "Distribution FMCG" },
+        { "want": "Tu t'intéresses à l'agro-industrie ou l'export", "tool": "Coopérative cacao" },
+        { "want": "Tu veux un cas orienté prédiction / risque", "tool": "Résiliation mobile" },
+        { "want": "Tu préfères aller plus loin sur un cas déjà maîtrisé", "tool": "ONG (Jour 2) ou microfinance (Jour 3)" }
+      ],
+      "presenterNotes": "Dernier repère avant que chacun tranche définitivement son choix pour le reste de la journée."
+    },
+    {
+      "id": "hypotheses-avec-claude",
+      "type": "code-card",
+      "eyebrow": "Chapitre 2",
+      "title": "Formuler ses hypothèses avec Claude",
+      "filename": "prompt_hypotheses_capstone.txt",
+      "code": "Je travaille sur <v>[ton cas choisi]</v>. Ma question métier est :\n<v>[ta question]</v>.\n\nAide-moi à formuler 3 hypothèses testables avec les données disponibles,\net pour chacune, dis-moi quelle colonne du dataset permettrait de la vérifier.",
+      "presenterNotes": "Montrer que Claude peut aider dès la phase de cadrage, pas seulement au moment du calcul — beaucoup d'apprenants ignorent cet usage."
+    },
+    {
+      "id": "plan-analyse-template",
+      "type": "step-list",
+      "eyebrow": "Chapitre 2",
+      "title": "Un modèle de plan d'analyse en 4 étapes",
+      "steps": [
+        { "title": "Nettoyer et vérifier les données", "detail": "Même réflexe que toute la semaine, sur ce nouveau dataset" },
+        { "title": "Explorer les grandes tendances", "detail": "Avant de creuser un détail précis, regarder l'ensemble" },
+        { "title": "Tester chaque hypothèse", "detail": "Une par une, en notant ce qui est confirmé ou infirmé" },
+        { "title": "Formuler une recommandation", "detail": "Ce que la décision métier finale devrait être" }
+      ],
+      "presenterNotes": "Ce modèle de plan est volontairement réutilisable pour n'importe quel projet futur, pas seulement ce capstone."
+    },
+    {
+      "id": "structurer-donnees",
+      "type": "step-list",
+      "eyebrow": "Chapitre 2",
+      "title": "Collecter et structurer les données de ton cas",
+      "steps": [
+        { "title": "Construire un jeu de données synthétique réaliste", "detail": "À partir des colonnes types vues plus tôt, avec l'aide de Claude" },
+        { "title": "Vérifier la cohérence avant d'analyser", "detail": "Les mêmes réflexes de nettoyage que le Jour 2 s'appliquent ici" }
+      ],
+      "presenterNotes": "Rassurer : construire un jeu de données synthétique cohérent est une compétence légitime pour s'entraîner, pas une triche — le préciser clairement dans le portfolio final."
+    },
+    {
+      "id": "analyser-avec-claude",
+      "type": "code-card",
+      "eyebrow": "Chapitre 3",
+      "title": "Lancer l'analyse de ton cas",
+      "filename": "prompt_analyse_capstone.txt",
+      "code": "Voici mon dataset nettoyé pour <v>[ton cas]</v>.\nTeste mes 3 hypothèses une par une, en précisant pour chacune\nsi elle est confirmée, infirmée, ou à nuancer — avec le chiffre à l'appui.",
+      "presenterNotes": "Le prompt demande explicitement un verdict par hypothèse, pas une réponse floue — c'est ce qui rend le résultat exploitable pour la suite."
+    },
+    {
+      "id": "visualiser-resultats-capstone",
+      "type": "step-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Visualiser ce qui soutient la recommandation",
+      "steps": [
+        { "title": "Un visuel par hypothèse confirmée", "detail": "Pas un mur de graphiques — seulement ce qui appuie la conclusion" },
+        { "title": "Palette accessible", "detail": "Même réflexe qu'au Jour 2 et au Jour 3" }
+      ],
+      "presenterNotes": "Rappeler une dernière fois la règle de sobriété visuelle — un projet capstone se juge sur la clarté, pas sur le nombre de graphiques."
+    },
+    {
+      "id": "recommandations-actionnables",
+      "type": "code-card",
+      "eyebrow": "Chapitre 3",
+      "title": "Formuler une recommandation actionnable",
+      "filename": "prompt_recommandation_capstone.txt",
+      "code": "À partir de mes résultats, rédige <v>une recommandation unique</v>,\nformulée comme une décision que quelqu'un pourrait prendre dès demain.\nPas de généralité — une action précise, avec le chiffre qui la justifie.",
+      "presenterNotes": "Le mot \"unique\" est volontaire — un projet qui recommande dix choses à la fois ne recommande en réalité rien de priorisé."
+    },
+    {
+      "id": "capstone-checkpoint",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 3 — Checkpoint",
+      "value": 1,
+      "label": "question métier, testée, avec une recommandation qu'on peut défendre demain",
+      "context": "C'est exactement ce que tu présenteras à la soutenance du Jour 5 — pas besoin de plus.",
+      "presenterNotes": "Rassurer une dernière fois sur le scope attendu avant de passer à la partie portfolio de la journée."
+    },
+    {
+      "id": "bon-portfolio-data",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4",
+      "title": "Ce qui rend un portfolio data convaincant",
+      "items": [
+        { "num": "01", "title": "Peu de projets, mais bien racontés", "detail": "Trois projets clairs valent mieux que dix projets à moitié documentés." },
+        { "num": "02", "title": "Le \"pourquoi\" avant le \"comment\"", "detail": "Commencer par le problème métier, pas par la liste des outils utilisés." },
+        { "num": "03", "title": "Une preuve de résultat", "detail": "Un chiffre, une capture d'écran, un lien vers le dashboard réel." }
+      ],
+      "presenterNotes": "Ce filtre s'applique directement au capstone qui vient d'être cadré — c'est lui qui va devenir la pièce centrale du portfolio."
+    },
+    {
+      "id": "erreurs-portfolio-debutant",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4",
+      "title": "Trois erreurs fréquentes de portfolio débutant",
+      "items": [
+        { "num": "01", "title": "Lister des certificats plutôt que des projets", "detail": "Un certificat prouve qu'on a suivi une formation, pas qu'on sait produire un résultat." },
+        { "num": "02", "title": "Montrer du code sans contexte", "detail": "Sans la question métier, le code le plus élégant ne dit rien à un recruteur." },
+        { "num": "03", "title": "Ne jamais mettre à jour", "detail": "Un portfolio figé depuis un an donne l'impression d'un projet abandonné." }
+      ],
+      "presenterNotes": "Ces trois erreurs sont probablement déjà présentes dans certains profils de la promotion — l'occasion de les corriger dès aujourd'hui."
+    },
+    {
+      "id": "structurer-projet-vitrine",
+      "type": "step-list",
+      "eyebrow": "Chapitre 4",
+      "title": "Structurer la page de ton projet capstone",
+      "steps": [
+        { "title": "Le contexte en 2-3 phrases", "detail": "Le problème métier, pour qui, pourquoi ça compte" },
+        { "title": "La méthode, résumée", "detail": "Les grandes étapes, sans détailler chaque ligne de code" },
+        { "title": "Le résultat et la recommandation", "detail": "Ce qui a été trouvé, et ce qu'on ferait avec" }
+      ],
+      "presenterNotes": "Cette structure en 3 blocs est directement transposable au capstone cadré plus tôt dans la journée."
+    },
+    {
+      "id": "github-notion-site",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 4",
+      "title": "GitHub, Notion ou mini-site",
+      "rows": [
+        { "want": "Montrer du code proprement organisé", "tool": "GitHub" },
+        { "want": "Rédiger une présentation riche, sans coder de page web", "tool": "Notion" },
+        { "want": "Avoir une vitrine personnalisée et mémorable", "tool": "Mini-site (Claude Design)" }
+      ],
+      "presenterNotes": "Rappeler qu'il n'y a pas de bonne réponse unique — l'essentiel est que le lien existe et soit à jour, pas la plateforme choisie."
+    },
+    {
+      "id": "construire-claude-design",
+      "type": "code-card",
+      "eyebrow": "Chapitre 4",
+      "previewLabel": "→ aperçu du mini-site portfolio, à l'écran en direct",
+      "title": "Construire une page portfolio avec Claude",
+      "filename": "prompt_portfolio_design.txt",
+      "code": "Construis une page portfolio simple présentant mon projet <v>[ton cas]</v> :\ncontexte, méthode, résultat, recommandation. Design sobre,\nune seule couleur d'accent, optimisé mobile.",
+      "presenterNotes": "Montrer en direct la génération d'une première version, à personnaliser ensuite pendant le reste de la session."
+    },
+    {
+      "id": "linkedin-titre-infos",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4",
+      "title": "LinkedIn : le titre et la section Infos",
+      "items": [
+        { "num": "01", "title": "Le titre n'est pas un poste, c'est une promesse", "detail": "\"Data Analyst\" seul en dit moins que \"J'aide les organisations à décider avec leurs données\"." },
+        { "num": "02", "title": "La section Infos raconte une trajectoire", "detail": "Pas une liste de compétences — une histoire cohérente, avec le capstone comme preuve." }
+      ],
+      "presenterNotes": "Encourager à réécrire ces deux sections en direct pendant la session, pas \"plus tard ce soir\"."
+    },
+    {
+      "id": "linkedin-projets-avant",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4",
+      "title": "Mettre ses projets en avant",
+      "items": [
+        { "num": "01", "title": "La section Projets, pas juste Expérience", "detail": "LinkedIn a un espace dédié, souvent sous-utilisé." },
+        { "num": "02", "title": "Un lien direct vers le portfolio", "detail": "Jamais \"disponible sur demande\" — le lien doit être cliquable immédiatement." }
+      ],
+      "presenterNotes": "Vérifier collectivement que chacun a bien un lien cliquable, pas juste une mention textuelle du projet."
+    },
+    {
+      "id": "mots-cles-recruteurs",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4",
+      "title": "Les mots-clés que les recruteurs recherchent",
+      "items": [
+        { "num": "01", "title": "Les outils précis, pas des catégories vagues", "detail": "\"Power BI, SQL, Python\" plutôt que \"outils data\"." },
+        { "num": "02", "title": "Le secteur d'application si pertinent", "detail": "\"Santé\", \"microfinance\", \"agro-industrie\" aident un recruteur sectoriel à te trouver." }
+      ],
+      "presenterNotes": "Suggérer d'utiliser Claude pour relire son profil et suggérer les mots-clés manquants par rapport à une offre type."
+    },
+    {
+      "id": "ou-chercher-opportunites",
+      "type": "ecosystem-grid",
+      "eyebrow": "Chapitre 5",
+      "title": "Où chercher des opportunités",
+      "items": [
+        { "icon": "globe", "title": "Plateformes d'offres", "detail": "LinkedIn Jobs, portails sectoriels" },
+        { "icon": "rocket", "title": "Freelance", "detail": "Missions courtes pour construire son historique" },
+        { "icon": "cowork", "title": "Réseau direct", "detail": "Anciens collègues, groupes de formation" },
+        { "icon": "chat", "title": "Prospection", "detail": "Contacter directement une organisation ciblée" }
+      ],
+      "presenterNotes": "Insister sur le réseau et la prospection directe — souvent sous-exploités par rapport aux plateformes d'offres classiques."
+    },
+    {
+      "id": "prospection-directe",
+      "type": "step-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Prospecter une organisation qui t'intéresse",
+      "steps": [
+        { "title": "Identifier un problème visible chez elle", "detail": "Un dashboard absent, un rapport qui pourrait être plus clair" },
+        { "title": "Proposer une preuve, pas juste une candidature", "detail": "Un mini-audit ou une maquette, comme celles construites cette semaine" }
+      ],
+      "presenterNotes": "Le capstone de la journée devient ici un modèle réutilisable : la même démarche peut être refaite pour une vraie organisation ciblée."
+    },
+    {
+      "id": "exemple-message-recruteur",
+      "type": "code-card",
+      "eyebrow": "Chapitre 5",
+      "title": "Rédiger un message de prospection",
+      "filename": "prompt_message_prospection.txt",
+      "code": "Aide-moi à écrire un message court pour <v>[organisation ciblée]</v>,\nqui mentionne un problème précis que j'ai remarqué et propose\nune preuve concrète (mon projet <v>[ton cas capstone]</v>) plutôt qu'une candidature générique.",
+      "presenterNotes": "Montrer que le capstone du jour sert de preuve concrète et réutilisable dans une vraie démarche de prospection, pas seulement pour la formation."
+    },
+    {
+      "id": "proposition-gagnante",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Ce qui distingue une proposition gagnante",
+      "items": [
+        { "num": "01", "title": "Spécifique à l'organisation", "detail": "Jamais un message copié-collé envoyé à dix organisations différentes." },
+        { "num": "02", "title": "Centrée sur leur problème, pas sur tes compétences", "detail": "Le \"je sais faire X\" vient après le \"vous avez ce problème précis\"." }
+      ],
+      "presenterNotes": "Clore le chapitre opportunités sur ce principe — il résume tout ce qui vient d'être vu sur la prospection."
+    },
+    {
+      "id": "resume-jour4",
+      "type": "principle-list",
+      "eyebrow": "Résumé",
+      "title": "Ce qu'on retient du Jour 04",
+      "items": [
+        { "num": "01", "title": "Un cadrage clair vaut plus qu'un outil sophistiqué", "detail": "La question métier précède toujours la technique." },
+        { "num": "02", "title": "Un portfolio se juge sur la clarté, pas le volume", "detail": "Peu de projets, bien racontés, avec une preuve de résultat." },
+        { "num": "03", "title": "La prospection peut réutiliser le capstone", "detail": "Le projet du jour devient un argument concret face à une vraie organisation." }
+      ],
+      "presenterNotes": "Trois idées à faire répéter avant les livrables — elles préparent directement la posture attendue à la soutenance de demain."
+    },
+    {
+      "id": "livrables",
+      "type": "deliverable-checklist",
+      "eyebrow": "À soumettre avant le live",
+      "title": "Livrables du Jour 04",
+      "items": [
+        { "title": "Projet capstone cadré", "detail": "Question métier, hypothèses, données collectées et nettoyées" },
+        { "title": "Portfolio en ligne", "detail": "Avec au moins ce projet documenté et un lien cliquable" },
+        { "title": "Profil LinkedIn optimisé", "detail": "Titre, section Infos, projets en avant" }
+      ],
+      "presenterNotes": "Rappeler que le capstone sera présenté demain — ce n'est pas un livrable isolé, c'est la base de la soutenance du Jour 5."
+    },
+    {
+      "id": "cloture",
+      "type": "cover",
+      "eyebrow": "À ce soir",
+      "title": ["Rendez-vous en", "live sur Teams"],
+      "highlight": "live sur Teams",
+      "subtitle": "Questions sur ton capstone, ton portfolio ou ton profil LinkedIn. Demain : soutenance, certification, et lancement de ton plan des 90 jours.",
+      "meta": "FORMATIONS4DATA · JOUR 05 DEMAIN À LA MÊME HEURE",
+      "metaHighlight": "JOUR 05 DEMAIN À LA MÊME HEURE",
+      "presenterNotes": "Rappeler que le live de ce soir est l'occasion de débloquer un capstone qui coince avant la soutenance du lendemain."
+    }
+  ]
+}

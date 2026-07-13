@@ -1,0 +1,333 @@
+{
+  "day": 1,
+  "title": "Découverte complète de l'écosystème Claude",
+  "date": "2026-07-13",
+  "objective": "Faire le tour complet de l'écosystème Claude, comprendre pourquoi il est pertinent pour la data, et publier un premier dashboard en ligne avant la fin de la session.",
+  "deliverables": [
+    "Lien vers ton repository GitHub contenant les fichiers du dashboard",
+    "Lien Github fonctionnel, le dashboard déployé et accessible en ligne",
+    "Une trace de personnalisation qui montre que c'est le tien"
+  ],
+  "chapters": [
+    { "title": "Ouverture", "minutes": 3, "firstSlideId": "cover" },
+    { "title": "Ton formateur cette semaine", "minutes": 3, "firstSlideId": "formateur" },
+    { "title": "Le programme de la semaine", "minutes": 3, "firstSlideId": "programme" },
+    { "title": "Chapitre 1 — Claude & Anthropic", "minutes": 8, "firstSlideId": "claude-anthropic" },
+    { "title": "Chapitre 2 — Pourquoi Claude pour la data", "minutes": 8, "firstSlideId": "pourquoi-claude-data" },
+    { "title": "Chapitre 3 — L'écosystème Claude", "minutes": 8, "firstSlideId": "ecosysteme" },
+    { "title": "Chapitre 4 — Où accéder à Claude", "minutes": 5, "firstSlideId": "ou-acceder" },
+    { "title": "Chapitre 5 — Accès selon les pays", "minutes": 4, "firstSlideId": "acces-pays" },
+    { "title": "Chapitre 6 — Sécurité et confidentialité des données", "minutes": 10, "firstSlideId": "securite-confidentialite-intro" },
+    { "title": "Chapitre 7 — Le workflow, avant et après Claude", "minutes": 15, "firstSlideId": "workflow-manuel" },
+    { "title": "Chapitre 8 — Construire ton dashboard (démo live)", "minutes": 20, "firstSlideId": "dashboard-demo" },
+    { "title": "Chapitre 9 — Agents & MCP", "minutes": 6, "firstSlideId": "agents-mcp" },
+    { "title": "Chapitre 10 — Vérifier une réponse de Claude", "minutes": 10, "firstSlideId": "verifier-reponse-ia" },
+    { "title": "Chapitre 11 — Publier ton travail en ligne", "minutes": 8, "firstSlideId": "publication" },
+    { "title": "Livrables du jour", "minutes": 3, "firstSlideId": "livrables" },
+    { "title": "Clôture", "minutes": 2, "firstSlideId": "cloture" }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Jour 01 · Formations4data",
+      "title": ["Découverte complète de", "l'écosystème Claude"],
+      "highlight": "l'écosystème Claude",
+      "subtitle": "Aujourd'hui, on fait le tour du propriétaire. À la fin de cette vidéo, tu auras un dashboard en ligne, avec un vrai lien à partager.",
+      "meta": "MAÎTRISEZ L'ANALYSE DES DONNÉES AVEC CLAUDE · 13 JUILLET 2026",
+      "metaHighlight": "13 JUILLET 2026",
+      "presenterNotes": "Accueil. Annoncer la promesse concrète de la session : un dashboard publié en ligne, avec un lien réel à partager, avant la fin de la vidéo."
+    },
+    {
+      "id": "formateur",
+      "type": "speaker-intro",
+      "eyebrow": "Ton formateur cette semaine",
+      "name": "Oscar Aksanti",
+      "bio": "Data Analyst & formateur, Ingénieur en Informatique et fondateur d'Eurêka Services. Mission : former un million de personnes à la data en Afrique francophone.",
+      "stats": [
+        { "value": "20 000+", "label": "APPRENANTS FORMÉS" },
+        { "value": "5 JOURS", "label": "AVEC TOI CETTE SEMAINE" },
+        { "value": "1M", "label": "OBJECTIF DE CARRIÈRE" }
+      ],
+      "photoPlaceholder": "emplacement photo Oscar Aksanti",
+      "photo": "/images/oscar-aksanti.jpg",
+      "presenterNotes": "Se présenter brièvement : parcours, mission derrière formations4data, et pourquoi cette semaine compte."
+    },
+    {
+      "id": "programme",
+      "type": "day-map",
+      "eyebrow": "Notre semaine ensemble",
+      "title": "Le programme complet",
+      "activeDay": 1,
+      "days": [
+        { "num": "01", "title": "Découverte de l'écosystème Claude", "subtitle": "Aujourd'hui — dashboard publié en ligne" },
+        { "num": "02", "title": "Excel & Power BI boostés par Claude", "subtitle": "2 projets portfolio" },
+        { "num": "03", "title": "Coding : SQL, Python, R", "subtitle": "1 projet transversal" },
+        { "num": "04", "title": "Portfolio complet + stratégie carrière", "subtitle": "Site en ligne + plan 90 jours" },
+        { "num": "05", "title": "Présentation & lancement", "subtitle": "Ton plan des 90 jours démarre" }
+      ],
+      "presenterNotes": "Donner la vue d'ensemble des 5 jours pour situer la session du jour dans le parcours complet."
+    },
+    {
+      "id": "claude-anthropic",
+      "type": "agent-boxes",
+      "eyebrow": "Chapitre 1",
+      "title": "C'est quoi Claude, et qui est Anthropic",
+      "boxes": [
+        { "badge": "RAPIDE", "title": "Haiku", "detail": "Rapide et léger. Tâches simples et répétitives." },
+        { "badge": "ÉQUILIBRE", "title": "Sonnet", "detail": "L'équilibre parfait. Ton modèle par défaut cette semaine.", "highlight": true },
+        { "badge": "PUISSANT", "title": "Opus", "detail": "Puissant. Pour le raisonnement complexe." },
+        { "badge": "AVANCÉ", "title": "Mythos", "detail": "Le palier le plus avancé. Pour plus tard." }
+      ],
+      "presenterNotes": "Anthropic est obsédée par la sécurité et la fiabilité de l'IA depuis le premier jour — ça se traduit directement dans la façon dont Claude répond. Présenter les 4 paliers de modèles ; insister sur Sonnet comme modèle par défaut de la semaine."
+    },
+    {
+      "id": "pourquoi-claude-data",
+      "type": "comparison",
+      "eyebrow": "Chapitre 2",
+      "title": "Pourquoi Claude, spécifiquement pour la data",
+      "columns": [
+        {
+          "label": "Un outil générique",
+          "items": ["Bon pour discuter", "Perd le fil sur les longs fichiers", "Résultat, sans la méthode"]
+        },
+        {
+          "label": "Claude, pour la data",
+          "items": ["Grande fenêtre de contexte", "Code rigoureux, expliqué", "Traduit le technique en langage business"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Contraster un usage générique d'un chatbot avec ce que Claude apporte spécifiquement à un analyste : contexte, rigueur, traduction business."
+    },
+    {
+      "id": "ecosysteme",
+      "type": "ecosystem-grid",
+      "eyebrow": "Chapitre 3",
+      "title": "L'écosystème Claude, le tour complet",
+      "items": [
+        { "icon": "chat", "title": "Chat", "detail": "Discuter, analyser" },
+        { "icon": "code", "title": "Code", "detail": "Terminal, dev" },
+        { "icon": "cowork", "title": "Cowork", "detail": "Travail collaboratif" },
+        { "icon": "apps", "title": "Excel / PPT", "detail": "Intégré aux apps" },
+        { "icon": "artifacts", "title": "Artifacts", "detail": "Docs, dashboards" },
+        { "icon": "projects", "title": "Projects", "detail": "Contexte regroupé" },
+        { "icon": "skills", "title": "Skills", "detail": "Méthodes réutilisables" },
+        { "icon": "api", "title": "API", "detail": "Pour les développeurs" }
+      ],
+      "presenterNotes": "Tour du propriétaire complet : chaque brique de l'écosystème et à quoi elle sert concrètement pour un data analyst."
+    },
+    {
+      "id": "ou-acceder",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 4",
+      "title": "Où accéder à Claude, selon ce que tu fais",
+      "rows": [
+        { "want": "Discuter, analyser un fichier, générer un dashboard", "tool": "Navigateur" },
+        { "want": "Automatiser des tâches de code répétitives", "tool": "Terminal / Claude Code" },
+        { "want": "Travailler directement dans Excel", "tool": "Claude in Excel" },
+        { "want": "Interagir plus profondément avec ton ordinateur", "tool": "App Desktop" }
+      ],
+      "presenterNotes": "Aider à choisir la bonne porte d'entrée selon la tâche du moment — pas besoin de tout utiliser en même temps."
+    },
+    {
+      "id": "acces-pays",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Un mot rapide sur l'accès selon les pays",
+      "lead": "Claude n'est pas disponible partout — une question réglementaire, pas technique. La grande majorité des pays d'Afrique francophone sont couverts.",
+      "items": [
+        { "num": "01", "title": "Vérifie la liste officielle avant toute chose", "detail": "support.claude.com — la liste évolue régulièrement" },
+        { "num": "02", "title": "Pas de solution de contournement risquée", "detail": "Si tu es bloqué, viens en parler dans le groupe, on regarde ton cas" }
+      ],
+      "presenterNotes": "Rassurer sur la couverture géographique tout en étant honnête sur les limites — rediriger vers le groupe en cas de blocage plutôt que vers des contournements."
+    },
+    {
+      "id": "securite-confidentialite-intro",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 6",
+      "title": "Avant de coller quoi que ce soit dans Claude",
+      "lead": "La loi de protection des données de ton pays s'applique aussi quand tu utilises une IA — ce n'est pas un vide juridique.",
+      "items": [
+        { "num": "01", "title": "Ce n'est pas propre à un pays", "detail": "La grande majorité des pays d'Afrique francophone ont aujourd'hui une loi et une autorité dédiées." },
+        { "num": "02", "title": "La responsabilité reste la tienne", "detail": "Même si Claude est un outil sûr, c'est toi qui décides quelles données tu lui montres." }
+      ],
+      "presenterNotes": "Poser le principe avant le détail juridique — l'idée que la loi s'applique aussi à l'usage d'une IA surprend souvent une partie du public."
+    },
+    {
+      "id": "lois-protection-donnees-afrique",
+      "type": "data-table",
+      "eyebrow": "Chapitre 6",
+      "title": "Quelques repères juridiques dans la région",
+      "lead": "À vérifier et actualiser selon le pays de chacun — les lois évoluent.",
+      "columns": ["Pays", "Loi", "Autorité", "Sanction maximale"],
+      "rows": [
+        { "cells": ["Sénégal", "Loi n°2008-12", "CDP", "100M FCFA + peines pénales"], "critical": false },
+        { "cells": ["Côte d'Ivoire", "Loi n°2013-450", "ARTCI", "500M FCFA (récidive)"], "critical": false },
+        { "cells": ["Nigeria", "NDPA 2023", "NDPC", "% du chiffre d'affaires"], "critical": false },
+        { "cells": ["Kenya", "Data Protection Act 2019", "ODPC", "5M KES ou 1% du CA"], "critical": false }
+      ],
+      "presenterNotes": "Ne pas s'attarder sur chaque ligne — l'objectif est de montrer que ces lois existent et ont de vraies autorités actives, pas de les mémoriser."
+    },
+    {
+      "id": "anonymiser-avant-upload",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 6",
+      "title": "Le réflexe : anonymiser avant d'envoyer",
+      "items": [
+        { "num": "01", "title": "Retire les identifiants directs", "detail": "Noms, numéros de téléphone, numéros de pièce d'identité — remplace-les par un identifiant neutre." },
+        { "num": "02", "title": "Garde une table de correspondance à part", "detail": "En dehors de la conversation avec Claude, pour pouvoir retrouver qui est qui si besoin plus tard." }
+      ],
+      "presenterNotes": "Ce réflexe sera rappelé brièvement chaque fois qu'un vrai fichier terrain sera manipulé dans la semaine — l'objectif est qu'il devienne automatique."
+    },
+    {
+      "id": "exemple-anonymisation",
+      "type": "before-after",
+      "eyebrow": "Chapitre 6",
+      "title": "Le fichier du centre de santé, anonymisé",
+      "before": {
+        "label": "AVANT",
+        "rows": [
+          "Mukamba Alice ; 0991234567 ; stock centre 1",
+          "Kabila Jean ; 0997654321 ; stock centre 2"
+        ]
+      },
+      "after": {
+        "label": "APRÈS",
+        "rows": [
+          { "primary": "Agent-A1 · Centre 1", "secondary": "stock" },
+          { "primary": "Agent-A2 · Centre 2", "secondary": "stock" }
+        ]
+      },
+      "presenterNotes": "Réutiliser volontairement l'exemple du centre de santé déjà présenté plus tôt — montrer que l'anonymisation s'applique au même cas plutôt qu'à un exemple abstrait supplémentaire."
+    },
+    {
+      "id": "workflow-manuel",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 7 — Le cœur de la journée",
+      "title": "Le workflow manuel traditionnel",
+      "nodes": [
+        { "icon": "search", "label": "Repérer", "detail": "les incohérences" },
+        { "icon": "wipe", "label": "Nettoyer", "detail": "à la main, ligne par ligne" },
+        { "icon": "table", "label": "TCD", "detail": "tableau croisé" },
+        { "icon": "chart-bar", "label": "Graphique", "detail": "en espérant que ça marche" },
+        { "icon": "clock", "label": "3-4 heures", "detail": "de travail manuel", "highlight": true }
+      ],
+      "presenterNotes": "Poser le problème avant la solution : le chemin manuel classique, long et fragile, qui sert de point de comparaison pour la suite."
+    },
+    {
+      "id": "nettoyage-avant-apres",
+      "type": "before-after",
+      "eyebrow": "Chapitre 6 — Même fichier, avec Claude",
+      "title": "Nettoyage en quelques secondes",
+      "before": {
+        "label": "AVANT",
+        "rows": [
+          "centre_1 ; MARS ; stok_debut",
+          "Centre 2 ; 03/2026 ; 140",
+          "CENTRE-2 ; mars ; N/A",
+          "centre2 ;  ; 140"
+        ]
+      },
+      "after": {
+        "label": "APRÈS",
+        "rows": [
+          { "primary": "Centre 1 · Mars 2026", "secondary": "128 unités" },
+          { "primary": "Centre 2 · Mars 2026", "secondary": "140 unités" },
+          { "primary": "Centre 3 · Mars 2026", "secondary": "96 unités" },
+          { "primary": "Centre 4 · Mars 2026", "secondary": "112 unités" }
+        ]
+      },
+      "presenterNotes": "Montrer en direct le même fichier sale, nettoyé par Claude en quelques secondes — c'est l'élément de bascule émotionnelle de la session."
+    },
+    {
+      "id": "dashboard-demo",
+      "type": "code-card",
+      "eyebrow": "Chapitre 8",
+      "title": "Construire et personnaliser ton dashboard",
+      "filename": "prompt_personnalisation.txt",
+      "code": "\"J'aimerais que le dashboard utilise <k>ces couleurs</k> : <v>[tes couleurs]</v>. Peux-tu adapter le design en gardant la même structure ?\"",
+      "previewLabel": "→ aperçu du dashboard généré par Claude, à l'écran en direct",
+      "presenterNotes": "Slide de repère uniquement — la démo du dashboard se fait à l'écran en direct, pas sur cette diapositive. Montrer comment personnaliser via un prompt simple."
+    },
+    {
+      "id": "agents-mcp",
+      "type": "agent-boxes",
+      "eyebrow": "Chapitre 9",
+      "title": "Agents et MCP — deux notions à connaître",
+      "boxes": [
+        { "badge": "AGENT", "title": "Claude qui travaille pour toi", "detail": "Tu donnes un objectif, Claude exécute plusieurs étapes seul — sans que tu guides chaque instant." },
+        { "badge": "MCP", "title": "Se connecter à tes outils", "detail": "Un moyen sécurisé pour Claude d'aller chercher l'info directement dans Drive, GitHub, tes bases de données." }
+      ],
+      "presenterNotes": "Deux notions à connaître sans forcément les pratiquer aujourd'hui — poser les mots pour plus tard dans la semaine."
+    },
+    {
+      "id": "verifier-reponse-ia",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 10",
+      "title": "Ne jamais copier une réponse sans la vérifier",
+      "lead": "Claude se trompe rarement sur ce type de tâche — mais \"rarement\" ne veut pas dire \"jamais\".",
+      "items": [
+        { "num": "01", "title": "L'esprit critique reste ton outil principal", "detail": "Relire, tester, comprendre — jamais accepter un résultat seulement parce qu'il est bien présenté." },
+        { "num": "02", "title": "Une hallucination ne ressemble pas à une erreur", "detail": "Elle est souvent formulée avec autant d'assurance qu'une réponse juste." }
+      ],
+      "presenterNotes": "Poser le principe général avant le protocole concret de la slide suivante — insister sur le fait qu'une IA confiante n'est pas synonyme d'IA juste."
+    },
+    {
+      "id": "protocole-verification",
+      "type": "step-list",
+      "eyebrow": "Chapitre 10",
+      "title": "Le protocole de vérification, en 4 étapes",
+      "steps": [
+        { "title": "Vérifier sur un petit échantillon connu", "detail": "Recalculer à la main 2-3 lignes et comparer au résultat de Claude" },
+        { "title": "Vérifier que les comptes ont un sens", "detail": "Un total, un nombre de lignes qui semble cohérent avec la réalité" },
+        { "title": "Reposer la question à tête reposée", "detail": "Demander à Claude de relire et critiquer sa propre réponse" },
+        { "title": "Adapter l'effort de vérification au risque", "detail": "Plus la décision est importante, plus la vérification doit être poussée" }
+      ],
+      "presenterNotes": "Ce protocole reviendra explicitement au Jour 3 avec le code — le poser dès maintenant permet de l'appliquer toute la semaine, pas seulement au moment du coding."
+    },
+    {
+      "id": "exercice-reperer-erreur-ia",
+      "type": "code-card",
+      "eyebrow": "Chapitre 10 — Exercice",
+      "title": "Repère l'erreur dans cette réponse",
+      "filename": "exercice_erreur_ia.txt",
+      "code": "<v>Question posée à Claude :</v> \"Combien de centres ont un taux de rupture\nsupérieur à 20% ce mois ?\"\n\n<v>Réponse de Claude :</v> \"3 centres dépassent 20% : Centre 1, Centre 3 et Centre 5.\"\n\n<k>Sur les données affichées plus tôt, seuls Centre 1 et Centre 3\ndépassaient réellement ce seuil — Centre 5 n'existe même pas dans le fichier.</k>",
+      "presenterNotes": "Laisser les apprenants chercher l'erreur avant de révéler la partie en évidence — l'exercice fonctionne mieux si la réponse n'est pas donnée trop vite."
+    },
+    {
+      "id": "publication",
+      "type": "step-list",
+      "eyebrow": "Chapitre 11",
+      "title": "Publier ton travail en ligne",
+      "steps": [
+        { "title": "Créer un repository sur GitHub", "detail": "Gratuit, deux minutes, on y dépose les fichiers du dashboard" },
+        { "title": "Déployer sur Github", "detail": "Connexion au repo GitHub, déploiement automatique" },
+        { "title": "Récupérer ton lien public", "detail": "Un vrai site en ligne, partageable à n'importe qui" }
+      ],
+      "presenterNotes": "Dérouler les 3 étapes en direct à l'écran : GitHub puis récupération du lien. C'est le livrable central de la journée."
+    },
+    {
+      "id": "livrables",
+      "type": "deliverable-checklist",
+      "eyebrow": "À soumettre avant le live",
+      "title": "Livrables du Jour 01",
+      "items": [
+        { "title": "Lien vers ton repository GitHub", "detail": "Contenant les fichiers du dashboard" },
+        { "title": "Lien Github fonctionnel", "detail": "Le dashboard déployé et accessible en ligne" },
+        { "title": "Une trace de personnalisation", "detail": "Couleur, titre — quelque chose qui montre que c'est le tien" }
+      ],
+      "presenterNotes": "Rappeler clairement ce qui est attendu avant le live Teams du soir."
+    },
+    {
+      "id": "cloture",
+      "type": "cover",
+      "eyebrow": "À ce soir",
+      "title": ["Rendez-vous en", "live sur Teams"],
+      "highlight": "live sur Teams",
+      "subtitle": "Questions, blocages GitHub, et découverte de vos premiers dashboards. Demain : Excel & Power BI, sérieusement boostés par Claude.",
+      "meta": "FORMATIONS4DATA · JOUR 02 DEMAIN À LA MÊME HEURE",
+      "metaHighlight": "JOUR 02 DEMAIN À LA MÊME HEURE",
+      "presenterNotes": "Clôturer en rappelant le rendez-vous du soir et en teasant le contenu du Jour 2."
+    }
+  ]
+}

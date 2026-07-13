@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+/*
+  Design tokens — brief section 4, à suivre au token près.
+  Toute couleur/typo/radius de l'app doit provenir d'ici, jamais d'une valeur arbitraire dans un composant.
+*/
+:root {
+  --ink: #121821;
+  --ink-soft: #1b232e;
+  --fog: #eef1f0;
+  --fog-dim: #dfe4e2;
+  --signal: #d97757;
+  --signal-bright: #f0a48d;
+  --spark: #f2a93b;
+  --slate: #5b6472;
+  --white: #ffffff;
+
+  --radius-card: 14px;
+  --radius-pill: 20px;
+
+  --slide-transition: 320ms;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-fog: var(--fog);
+  --color-fog-dim: var(--fog-dim);
+  --color-signal: var(--signal);
+  --color-signal-bright: var(--signal-bright);
+  --color-spark: var(--spark);
+  --color-slate: var(--slate);
+  --color-white: var(--white);
+
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-jakarta);
+  --font-mono: var(--font-plex-mono);
+
+  --radius-card: var(--radius-card);
+  --radius-pill: var(--radius-pill);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  background: var(--fog);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-mono-label {
+  font-family: var(--font-mono), monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  @page {
+    size: landscape;
+    margin: 0;
+  }
+
+  .print-page {
+    page-break-after: always;
+    break-after: page;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    aspect-ratio: auto !important;
+    height: 100vh;
+    width: 100vw;
+  }
+}

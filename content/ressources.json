@@ -1,0 +1,72 @@
+{
+  "resources": [
+    {
+      "title": "Échantillons Power BI officiels Microsoft",
+      "description": "Financial Sample, Retail Analysis, Human Resources — fichiers .pbix et .xlsx prêts à l'emploi pour s'exercer au Jour 2.",
+      "url": "https://learn.microsoft.com/power-bi/create-reports/sample-datasets",
+      "category": "Power BI",
+      "license": "Usage interne libre, attribution « obviEnce © » requise (texte officiel Microsoft)",
+      "day": 2
+    },
+    {
+      "title": "Chinook — base de données SQL d'exemple",
+      "description": "Base relationnelle (artistes, albums, clients, factures) largement utilisée pour l'apprentissage des jointures SQL.",
+      "url": "https://github.com/lerocha/chinook-database",
+      "category": "SQL",
+      "license": "MIT",
+      "day": 3
+    },
+    {
+      "title": "Sakila — base de données SQL d'exemple",
+      "description": "Base de location de films (MySQL), utile pour pratiquer des requêtes plus complexes et des vues.",
+      "url": "https://dev.mysql.com/doc/sakila/en/",
+      "category": "SQL",
+      "license": "New BSD (schéma et données ; la documentation associée suit une licence distincte)",
+      "day": 3
+    },
+    {
+      "title": "Palmer Penguins",
+      "description": "Jeu de données R/Python compact, parfait pour une première analyse descriptive et des visualisations simples.",
+      "url": "https://allisonhorst.github.io/palmerpenguins/",
+      "category": "Python & R",
+      "license": "CC0",
+      "day": 3
+    },
+    {
+      "title": "Gapminder",
+      "description": "Données socio-économiques par pays et par année — bon support pour des visualisations d'évolution temporelle.",
+      "url": "https://www.gapminder.org/data/",
+      "category": "Python & R",
+      "license": "CC0 (package R) — vérifier la mention de licence propre au jeu de données téléchargé",
+      "day": 3
+    },
+    {
+      "title": "UCI Machine Learning Repository",
+      "description": "Large catalogue de jeux de données pour approfondir au-delà de la formation.",
+      "url": "https://archive.ics.uci.edu",
+      "category": "Python & R",
+      "license": "CC BY 4.0 (licence précisée par jeu de données)"
+    },
+    {
+      "title": "Claude Cookbooks",
+      "description": "Exemples officiels Anthropic pour construire avec Claude — utile pour aller plus loin après la formation.",
+      "url": "https://github.com/anthropics/claude-cookbooks",
+      "category": "Prompts & méthode",
+      "license": "MIT"
+    },
+    {
+      "title": "Bibliothèque de prompts officielle Claude",
+      "description": "Prompts prêts à l'emploi organisés par cas d'usage, publiés par Anthropic.",
+      "url": "https://platform.claude.com/docs/en/prompt-library/library",
+      "category": "Prompts & méthode",
+      "license": "Contenu du site officiel Anthropic"
+    },
+    {
+      "title": "Prompt Engineering Guide (dair-ai)",
+      "description": "Guide généraliste de prompt engineering, complémentaire à la méthode Claude enseignée en formation.",
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "category": "Prompts & méthode",
+      "license": "MIT"
+    }
+  ]
+}

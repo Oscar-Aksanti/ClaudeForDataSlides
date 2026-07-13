@@ -1,0 +1,36 @@
+{
+  "program": "Maîtrisez l'Analyse des Données avec Claude",
+  "organizer": "Formations4data · Eurêka Services",
+  "days": [
+    {
+      "day": 1,
+      "title": "Découverte de l'écosystème Claude",
+      "subtitle": "Aujourd'hui — dashboard publié en ligne",
+      "date": "2026-07-13"
+    },
+    {
+      "day": 2,
+      "title": "Excel & Power BI boostés par Claude",
+      "subtitle": "2 projets portfolio",
+      "date": "2026-07-14"
+    },
+    {
+      "day": 3,
+      "title": "Coding : SQL, Python, R",
+      "subtitle": "1 projet transversal",
+      "date": "2026-07-15"
+    },
+    {
+      "day": 4,
+      "title": "Portfolio complet + stratégie carrière",
+      "subtitle": "Site en ligne + plan 90 jours",
+      "date": "2026-07-16"
+    },
+    {
+      "day": 5,
+      "title": "Présentation & lancement",
+      "subtitle": "Ton plan des 90 jours démarre",
+      "date": "2026-07-17"
+    }
+  ]
+}

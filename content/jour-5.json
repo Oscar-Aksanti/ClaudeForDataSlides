@@ -1,0 +1,387 @@
+{
+  "day": 5,
+  "title": "Présentation & lancement",
+  "date": "2026-07-17",
+  "objective": "Soutenir son projet capstone devant le groupe, comprendre les modalités de certification, et repartir avec un plan d'action concret pour les 90 prochains jours.",
+  "deliverables": [
+    "Projet capstone finalisé et documenté, présenté à l'oral",
+    "Plan d'action des 90 jours, rédigé avec Claude",
+    "Certification passée"
+  ],
+  "chapters": [
+    { "title": "Ouverture", "minutes": 3, "firstSlideId": "cover" },
+    { "title": "Le programme de la semaine", "minutes": 3, "firstSlideId": "programme" },
+    { "title": "Automatisation & productivité", "minutes": 12, "firstSlideId": "cowork-intro" },
+    { "title": "Préparer la soutenance", "minutes": 15, "firstSlideId": "structure-soutenance" },
+    { "title": "Soutenances", "minutes": 35, "firstSlideId": "grille-evaluation" },
+    { "title": "Certification", "minutes": 12, "firstSlideId": "modalites-examen" },
+    { "title": "Ton plan des 90 jours", "minutes": 12, "firstSlideId": "pourquoi-plan-90-jours" },
+    { "title": "Continuer après la formation", "minutes": 4, "firstSlideId": "ressources-pour-continuer" },
+    { "title": "Résumé & livrables", "minutes": 4, "firstSlideId": "resume-jour5" },
+    { "title": "Clôture", "minutes": 3, "firstSlideId": "mot-de-la-fin" }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Jour 05 · Formations4data",
+      "title": ["Présentation &", "lancement"],
+      "highlight": "lancement",
+      "subtitle": "Dernier jour. Tu vas présenter ton projet, obtenir ta certification, et repartir avec un plan concret pour les 90 prochains jours.",
+      "meta": "MAÎTRISEZ L'ANALYSE DES DONNÉES AVEC CLAUDE · 17 JUILLET 2026",
+      "metaHighlight": "17 JUILLET 2026",
+      "presenterNotes": "Marquer solennellement que c'est le dernier jour — le ton change, on passe de l'apprentissage à la démonstration de ce qui a été appris."
+    },
+    {
+      "id": "programme",
+      "type": "day-map",
+      "eyebrow": "Notre semaine ensemble",
+      "title": "Le programme complet",
+      "activeDay": 5,
+      "days": [
+        { "num": "01", "title": "Découverte de l'écosystème Claude", "subtitle": "Dashboard publié en ligne" },
+        { "num": "02", "title": "Excel & Power BI boostés par Claude", "subtitle": "2 projets portfolio" },
+        { "num": "03", "title": "Coding : SQL, Python, R", "subtitle": "1 projet transversal" },
+        { "num": "04", "title": "Portfolio complet + stratégie carrière", "subtitle": "Site en ligne + plan 90 jours" },
+        { "num": "05", "title": "Présentation & lancement", "subtitle": "Ton plan des 90 jours démarre" }
+      ],
+      "presenterNotes": "Dernier passage sur cette vue d'ensemble — l'occasion de mesurer collectivement le chemin parcouru depuis lundi."
+    },
+    {
+      "id": "cowork-intro",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Claude Cowork, pour aller plus loin que le prompt unique",
+      "lead": "Vu en un mot au Jour 1 — aujourd'hui, on regarde comment ça s'utilise vraiment au quotidien.",
+      "items": [
+        { "num": "01", "title": "Un espace de travail partagé avec Claude", "detail": "Plutôt qu'une conversation isolée, un contexte qui persiste entre les sessions." },
+        { "num": "02", "title": "Pensé pour des tâches récurrentes", "detail": "Un rapport hebdomadaire, un suivi régulier — pas un usage ponctuel." }
+      ],
+      "presenterNotes": "Repartir du mot déjà posé au Jour 1 pour ne pas donner l'impression d'un concept totalement nouveau à cette étape tardive de la semaine."
+    },
+    {
+      "id": "agents-automatiser",
+      "type": "agent-boxes",
+      "eyebrow": "Chapitre 1",
+      "title": "Ce qu'on délègue, ce qu'on garde",
+      "boxes": [
+        { "badge": "AGENT", "title": "Ce qu'un agent peut faire", "detail": "Exécuter plusieurs étapes vers un objectif fixé, sans validation à chaque clic intermédiaire.", "highlight": true },
+        { "badge": "CONTRÔLE HUMAIN", "title": "Ce qui reste sous ton contrôle", "detail": "La décision finale, l'accès aux données sensibles, et toute communication envoyée à l'extérieur." }
+      ],
+      "presenterNotes": "Reprendre exactement le duo Agent/MCP posé au Jour 1, mais avec un vrai exemple d'usage cette fois — voir la slide suivante."
+    },
+    {
+      "id": "exemple-agent-rapport",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 1",
+      "title": "Exemple : automatiser un rapport hebdomadaire",
+      "nodes": [
+        { "icon": "clock", "label": "Chaque lundi", "detail": "déclenchement automatique" },
+        { "icon": "database", "label": "Collecte", "detail": "les chiffres de la semaine" },
+        { "icon": "chart-bar", "label": "Analyse", "detail": "génère le résumé" },
+        { "icon": "chat", "label": "Envoi", "detail": "au responsable, à valider", "highlight": true }
+      ],
+      "presenterNotes": "Insister sur la dernière étape : \"à valider\", pas \"envoyé automatiquement\" — l'humain garde la dernière main sur ce qui sort réellement."
+    },
+    {
+      "id": "mcp-rappel",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1 — Rappel",
+      "title": "MCP, en une phrase",
+      "items": [
+        { "num": "01", "title": "Un moyen sécurisé de connecter tes outils", "detail": "Drive, GitHub, une base de données — sans copier-coller manuel." },
+        { "num": "02", "title": "C'est ce qui rend un agent vraiment utile", "detail": "Sans connexion à de vraies données, un agent ne peut qu'imaginer des réponses." }
+      ],
+      "presenterNotes": "Rappel volontairement bref — le concept a déjà été posé au Jour 1, on ne fait que le raccrocher à l'automatisation."
+    },
+    {
+      "id": "securite-avant-automatiser",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1 — Sécurité",
+      "title": "Plus d'automatisation, plus de vigilance",
+      "lead": "Connecter un agent à de vrais outils augmente ce qu'il peut faire — et ce qu'il peut casser.",
+      "items": [
+        { "num": "01", "title": "Limiter les accès au strict nécessaire", "detail": "Un agent qui génère un rapport n'a pas besoin d'un accès en écriture à toute la base." },
+        { "num": "02", "title": "Superviser les premières exécutions", "detail": "Vérifier manuellement les premiers résultats avant de laisser tourner sans supervision." }
+      ],
+      "presenterNotes": "Boucler avec la discipline de vérification vue au Jour 3 — l'automatisation ne dispense jamais de la vérification, elle la rend juste moins fréquente."
+    },
+    {
+      "id": "limites-automatisation",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Ce qu'on ne délègue jamais complètement",
+      "items": [
+        { "num": "01", "title": "La décision finale", "detail": "Un agent recommande, une personne décide." },
+        { "num": "02", "title": "Les données sensibles sans relecture", "detail": "Toujours repasser par la règle d'anonymisation vue en début de semaine." },
+        { "num": "03", "title": "La communication externe non relue", "detail": "Un message envoyé au nom de l'organisation se relit toujours avant departure." }
+      ],
+      "presenterNotes": "Clore le chapitre automatisation sur une note de prudence équilibrée, ni technophobe ni naïve."
+    },
+    {
+      "id": "structure-soutenance",
+      "type": "step-list",
+      "eyebrow": "Chapitre 2",
+      "title": "La structure d'une bonne soutenance",
+      "steps": [
+        { "title": "Le contexte, en 30 secondes", "detail": "La question métier, pour qui, pourquoi ça compte" },
+        { "title": "La méthode, en 1 minute", "detail": "Les grandes étapes, sans détail technique excessif" },
+        { "title": "Le résultat et la recommandation, en 1 minute", "detail": "Ce qui a été trouvé, et l'action qui en découle" },
+        { "title": "Les questions, 2-3 minutes", "detail": "Le moment où le jury vérifie la compréhension réelle du projet" }
+      ],
+      "presenterNotes": "Cette structure tient sous 5 minutes de présentation — insister sur le fait que la brièveté est un signe de maîtrise, pas un manque de contenu."
+    },
+    {
+      "id": "exemple-mauvaise-soutenance",
+      "type": "comparison",
+      "eyebrow": "Chapitre 2",
+      "title": "Deux façons de présenter le même projet",
+      "columns": [
+        {
+          "label": "Soutenance confuse",
+          "items": ["Commence par le code et les outils", "Aucune question métier clairement énoncée", "Se termine sans recommandation"]
+        },
+        {
+          "label": "Soutenance claire",
+          "items": ["Commence par le problème, en une phrase", "Chaque étape reliée à la question posée", "Se termine par une décision proposée"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Ce contraste est probablement le repère le plus utile de tout le chapitre — le faire relire une dernière fois juste avant les soutenances."
+    },
+    {
+      "id": "anticiper-questions-jury",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2",
+      "title": "Les questions qui reviennent presque toujours",
+      "items": [
+        { "num": "01", "title": "Pourquoi ce choix de données ?", "detail": "Être capable de justifier, pas seulement de décrire." },
+        { "num": "02", "title": "Quelle est la limite de ton analyse ?", "detail": "Savoir reconnaître une limite renforce la crédibilité, ne l'affaiblit pas." },
+        { "num": "03", "title": "Que ferais-tu avec plus de temps ?", "detail": "Montre que le scope du jour était un choix, pas un plafond de compétence." }
+      ],
+      "presenterNotes": "Encourager à préparer une réponse courte à ces 3 questions avant même de passer devant le groupe."
+    },
+    {
+      "id": "repeter-pitch-claude",
+      "type": "code-card",
+      "eyebrow": "Chapitre 2",
+      "title": "Répéter son pitch face à un évaluateur exigeant",
+      "filename": "prompt_repetition_soutenance.txt",
+      "code": "Voici mon pitch de soutenance : <v>[colle ton texte]</v>.\nJoue le rôle d'un <k>évaluateur exigeant mais juste</k>.\nPose-moi 3 questions difficiles sur ce projet, comme tu le ferais en vrai.",
+      "presenterNotes": "Laisser quelques minutes pour que chacun teste ce prompt individuellement avant le tour de table réel."
+    },
+    {
+      "id": "slides-soutenance-nombre",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 2",
+      "title": "Combien de slides pour 5 minutes",
+      "rows": [
+        { "want": "Présenter le contexte", "tool": "1 slide" },
+        { "want": "Expliquer la méthode", "tool": "1 à 2 slides" },
+        { "want": "Montrer le résultat", "tool": "1 à 2 slides" },
+        { "want": "Formuler la recommandation", "tool": "1 slide" }
+      ],
+      "presenterNotes": "Même logique que cette plateforme elle-même a essayé de suivre toute la semaine : une idée par slide, jamais un mur de texte pour gagner du temps."
+    },
+    {
+      "id": "checklist-avant-soutenance",
+      "type": "deliverable-checklist",
+      "eyebrow": "Juste avant de passer",
+      "title": "Dernière vérification avant de présenter",
+      "items": [
+        { "title": "Pitch chronométré à moins de 5 minutes", "detail": "Répété au moins une fois à voix haute" },
+        { "title": "Lien portfolio testé sur un autre appareil", "detail": "Un lien qui ne s'ouvre pas casse toute la démonstration" },
+        { "title": "Réponse prête aux 3 questions classiques", "detail": "Choix des données, limites, et \"avec plus de temps\"" }
+      ],
+      "presenterNotes": "Cette checklist est interactive à l'écran — laisser chacun la cocher mentalement dans les dernières minutes avant son tour."
+    },
+    {
+      "id": "grille-evaluation",
+      "type": "data-table",
+      "eyebrow": "Chapitre 3 — Soutenances",
+      "title": "La grille d'évaluation",
+      "columns": ["Critère", "Ce qui est regardé"],
+      "rows": [
+        { "cells": ["Clarté du cadrage", "La question métier est-elle compréhensible en une phrase ?"], "critical": false },
+        { "cells": ["Rigueur de la méthode", "Le nettoyage et l'analyse sont-ils cohérents avec ce qui a été enseigné ?"], "critical": false },
+        { "cells": ["Qualité de la recommandation", "L'action proposée est-elle concrète et justifiée par un chiffre ?"], "critical": false },
+        { "cells": ["Maîtrise des outils", "L'apprenant peut-il expliquer ses propres choix techniques ?"], "critical": false }
+      ],
+      "presenterNotes": "Afficher cette grille avant de commencer le tour de table pour que chacun sache précisément sur quoi il sera jugé."
+    },
+    {
+      "id": "consignes-tour-de-table",
+      "type": "step-list",
+      "eyebrow": "Chapitre 3 — Soutenances",
+      "title": "Le déroulé du tour de table",
+      "steps": [
+        { "title": "5 minutes de présentation", "detail": "Chronométrées, coupées si dépassement" },
+        { "title": "3 minutes de questions", "detail": "Du jury puis du groupe" },
+        { "title": "2 minutes de retour", "detail": "Un point fort et un point d'amélioration, formulés par le groupe" }
+      ],
+      "presenterNotes": "Rappeler que le feedback du groupe fait partie de l'exercice — apprendre à recevoir une critique constructive est aussi une compétence professionnelle."
+    },
+    {
+      "id": "conseil-avant-soutenance",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3 — Soutenances",
+      "title": "Un dernier mot avant de commencer",
+      "items": [
+        { "num": "01", "title": "Le jury évalue la démarche, pas la perfection", "detail": "Un projet imparfait mais bien compris vaut mieux qu'un résultat impressionnant mal maîtrisé." },
+        { "num": "02", "title": "Le trac est normal, il ne disqualifie personne", "detail": "Respirer, parler lentement, et se concentrer sur l'histoire à raconter." }
+      ],
+      "presenterNotes": "Moment volontairement humain avant de lancer les passages — désamorcer le stress sans minimiser l'exercice."
+    },
+    {
+      "id": "modalites-examen",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4 — Certification",
+      "title": "Les modalités de l'examen",
+      "items": [
+        { "num": "01", "title": "Format", "detail": "Questions à choix multiples et un cas pratique court, sur les 5 jours de contenu." },
+        { "num": "02", "title": "Durée", "detail": "30 minutes, à faire juste après les soutenances." }
+      ],
+      "presenterNotes": "Rassurer sur le fait que l'examen porte sur les concepts vus, pas sur des pièges — la préparation, c'est d'avoir suivi la semaine activement."
+    },
+    {
+      "id": "ce-qui-est-evalue",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4 — Certification",
+      "title": "Ce que l'examen vérifie vraiment",
+      "items": [
+        { "num": "01", "title": "La compréhension des concepts clés", "detail": "Pas la mémorisation exacte d'une formule ou d'une commande." },
+        { "num": "02", "title": "L'usage critique de Claude", "detail": "Savoir quand faire confiance et quand vérifier, pas juste savoir écrire un prompt." },
+        { "num": "03", "title": "La qualité du portfolio produit", "detail": "La preuve concrète que les compétences ont mené à un résultat réel." }
+      ],
+      "presenterNotes": "Ce triptyque reflète exactement l'esprit de toute la formation, pas seulement du dernier jour."
+    },
+    {
+      "id": "pourquoi-plan-90-jours",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Pourquoi 90 jours, pas juste une bonne intention",
+      "items": [
+        { "num": "01", "title": "Un vœu vague ne se réalise presque jamais", "detail": "\"Je vais continuer à progresser\" ne dit rien de ce qu'il faut faire lundi matin." },
+        { "num": "02", "title": "Un plan avec paliers se suit et s'ajuste", "detail": "On peut mesurer si on avance, et corriger en cours de route." }
+      ],
+      "presenterNotes": "Poser l'intention avant la méthode — le plan 90 jours n'est pas un exercice administratif, c'est ce qui évite que la formation reste sans suite concrète."
+    },
+    {
+      "id": "objectifs-smart",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Des objectifs SMART pour ton plan",
+      "items": [
+        { "num": "01", "title": "Spécifique", "detail": "Une action précise, pas une direction générale." },
+        { "num": "02", "title": "Mesurable", "detail": "Un moyen clair de savoir si c'est fait ou non." },
+        { "num": "03", "title": "Atteignable", "detail": "Réalisable avec le temps et les ressources réellement disponibles." },
+        { "num": "04", "title": "Réaliste", "detail": "Cohérent avec les autres priorités de ta vie actuelle." },
+        { "num": "05", "title": "Temporellement défini", "detail": "Une échéance précise, pas \"un jour\"." }
+      ],
+      "presenterNotes": "Cadre volontairement classique mais efficace — rien de nouveau à inventer, juste à appliquer sérieusement au plan qui suit."
+    },
+    {
+      "id": "paliers-30-60-90",
+      "type": "step-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Les trois paliers du plan",
+      "steps": [
+        { "title": "30 jours — consolider", "detail": "Finaliser le portfolio, republier si besoin, solidifier les bases de la semaine" },
+        { "title": "60 jours — candidater activement", "detail": "Prospection régulière, profil LinkedIn vivant, premières réponses" },
+        { "title": "90 jours — premiers résultats", "detail": "Un entretien, une mission freelance, ou une progression mesurable" }
+      ],
+      "presenterNotes": "Ces trois paliers donnent une trame par défaut — chacun l'ajuste ensuite à sa situation personnelle avec Claude."
+    },
+    {
+      "id": "rediger-plan-avec-claude",
+      "type": "code-card",
+      "eyebrow": "Chapitre 5",
+      "title": "Rédiger ton plan avec Claude",
+      "filename": "prompt_plan_90_jours.txt",
+      "code": "Voici mon profil et mon projet capstone : <v>[résumé en quelques lignes]</v>.\nAide-moi à rédiger un plan des 90 prochains jours, avec des objectifs\n<k>SMART</k> pour chaque palier (30/60/90 jours), réaliste par rapport\nà mon temps disponible : <v>[ton temps disponible par semaine]</v>.",
+      "presenterNotes": "Insister sur la personnalisation du temps disponible dans le prompt — un plan générique de 10h/semaine ne sert à rien à quelqu'un qui en a 3."
+    },
+    {
+      "id": "exemple-plan-90-jours",
+      "type": "data-table",
+      "eyebrow": "Chapitre 5",
+      "title": "Un exemple de plan, pour s'inspirer",
+      "columns": ["Palier", "Objectif principal", "Action clé"],
+      "rows": [
+        { "cells": ["30 jours", "Portfolio solide et en ligne", "Republier le capstone avec les retours de la soutenance"], "critical": false },
+        { "cells": ["60 jours", "Visibilité et premiers contacts", "5 messages de prospection ciblée par semaine"], "critical": false },
+        { "cells": ["90 jours", "Premier résultat concret", "Un entretien décroché ou une première mission freelance"], "critical": false }
+      ],
+      "presenterNotes": "Préciser que c'est un exemple générique — chaque plan réel doit être adapté à la situation et au secteur visé par l'apprenant."
+    },
+    {
+      "id": "ressources-pour-continuer",
+      "type": "ecosystem-grid",
+      "eyebrow": "Chapitre 6",
+      "title": "Pour continuer après la formation",
+      "items": [
+        { "icon": "database", "title": "Jeux de données", "detail": "Pour continuer à s'exercer" },
+        { "icon": "skills", "title": "Prompts & méthode", "detail": "Bibliothèque Claude officielle" },
+        { "icon": "cowork", "title": "Le groupe", "detail": "Continuer à échanger après la semaine" },
+        { "icon": "globe", "title": "Documentation Claude", "detail": "Pour aller plus loin en autonomie" }
+      ],
+      "presenterNotes": "Rappeler explicitement que la page Ressources de cette plateforme reste accessible après la formation — ce n'est pas un contenu à usage unique."
+    },
+    {
+      "id": "rester-connecte-communaute",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 6",
+      "title": "Rester connecté après la semaine",
+      "items": [
+        { "num": "01", "title": "Le groupe continue", "detail": "Les questions ne s'arrêtent pas à la certification." },
+        { "num": "02", "title": "Cette plateforme reste disponible", "detail": "Pour revoir une slide, un prompt, ou reprendre une explication plus tard." }
+      ],
+      "presenterNotes": "Fermer le chapitre en rassurant : la formation se termine, l'accompagnement et les ressources restent."
+    },
+    {
+      "id": "resume-jour5",
+      "type": "principle-list",
+      "eyebrow": "Résumé de la semaine",
+      "title": "Ce qu'on retient de ces cinq jours",
+      "items": [
+        { "num": "01", "title": "Un écosystème maîtrisé, pas juste survolé", "detail": "De la découverte du Jour 1 jusqu'à l'automatisation du Jour 5." },
+        { "num": "02", "title": "Un portfolio réel, pas un exercice théorique", "detail": "Un dashboard, une analyse, un projet capstone — tous publiés." },
+        { "num": "03", "title": "Un plan pour la suite, pas juste une fin de formation", "detail": "90 jours avec des paliers concrets, pas un vague \"il faudra continuer\"." }
+      ],
+      "presenterNotes": "Dernier résumé de toute la semaine, pas seulement du jour — laisser ce moment prendre un peu plus de place que les résumés précédents."
+    },
+    {
+      "id": "livrables",
+      "type": "deliverable-checklist",
+      "eyebrow": "Livrables finaux",
+      "title": "Livrables du Jour 05",
+      "items": [
+        { "title": "Projet capstone finalisé et documenté", "detail": "Présenté à l'oral, disponible en ligne" },
+        { "title": "Plan d'action des 90 jours", "detail": "Rédigé avec Claude, avec des objectifs SMART par palier" },
+        { "title": "Certification passée", "detail": "Examen complété" }
+      ],
+      "presenterNotes": "Derniers livrables de la formation — vérifier qu'ils sont bien compris avant la clôture finale."
+    },
+    {
+      "id": "mot-de-la-fin",
+      "type": "quote-stat",
+      "eyebrow": "Avant de se dire au revoir",
+      "value": 5,
+      "suffix": " jours",
+      "label": "Cinq jours, un portfolio réel, un plan pour les 90 prochains",
+      "context": "La formation s'arrête ici. Ton plan, lui, commence dès demain matin.",
+      "presenterNotes": "Marquer une vraie pause avant la slide de clôture — laisser ce chiffre résonner quelques secondes."
+    },
+    {
+      "id": "cloture-finale",
+      "type": "cover",
+      "eyebrow": "Fin de la formation",
+      "title": ["Ton plan des 90 jours", "démarre maintenant"],
+      "highlight": "démarre maintenant",
+      "subtitle": "Merci d'avoir été présent et rigoureux cette semaine. La suite dépend de toi, avec Claude comme copilote — exactement comme depuis lundi.",
+      "meta": "FORMATIONS4DATA · MERCI D'AVOIR ÉTÉ LÀ CETTE SEMAINE",
+      "metaHighlight": "MERCI D'AVOIR ÉTÉ LÀ CETTE SEMAINE",
+      "presenterNotes": "Clôture officielle de la formation — laisser un temps pour les derniers mots, applaudissements ou questions finales en live."
+    }
+  ]
+}

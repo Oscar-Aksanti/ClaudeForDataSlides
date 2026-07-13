@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Charte graphique — Maîtrisez l'Analyse des Données avec Claude</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121821;
+    --ink-soft:#1B232E;
+    --fog:#EEF1F0;
+    --fog-dim:#DFE4E2;
+    --signal:#D97757;
+    --signal-bright:#F0A48D;
+    --spark:#F2A93B;
+    --slate:#5B6472;
+    --white:#FFFFFF;
+    --radius:14px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;background:var(--ink);overflow:hidden;}
+  body{
+    font-family:'Plus Jakarta Sans',sans-serif;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+  }
+  .stage{
+    position:relative;
+    width:100%;height:100vh;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .deck{
+    position:relative;
+    width:min(94vw,1180px);
+    height:min(86vh,680px);
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 40px 100px -20px rgba(0,0,0,0.6);
+    background:var(--fog);
+  }
+  .slide{
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    display:flex;flex-direction:column;
+    padding:56px 64px;
+    transform:translateX(60px);
+    opacity:0;
+    transition:transform .6s cubic-bezier(.22,.9,.28,1), opacity .5s ease;
+    pointer-events:none;
+  }
+  .slide.active{transform:translateX(0);opacity:1;pointer-events:auto;}
+  .slide.prev{transform:translateX(-60px);opacity:0;}
+
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--signal);font-weight:500;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--signal);}
+
+  h1{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.02;}
+  h2{font-family:'Space Grotesk',sans-serif;font-weight:600;}
+
+  /* ---------- SLIDE 1 : COVER ---------- */
+  .cover{background:linear-gradient(150deg,var(--ink) 0%, var(--ink-soft) 60%, #16303049 100%);color:var(--fog);justify-content:center;}
+  .cover .eyebrow{color:var(--signal-bright);}
+  .cover .eyebrow::before{background:var(--signal-bright);}
+  .cover h1{font-size:56px;margin-top:18px;max-width:720px;color:var(--white);}
+  .cover h1 span{color:var(--signal-bright);}
+  .cover .sub{font-size:16.5px;color:#9BA6AE;margin-top:18px;max-width:520px;line-height:1.55;}
+  .cover .dates{
+    margin-top:auto;display:flex;align-items:center;gap:14px;
+    font-family:'IBM Plex Mono',monospace;font-size:13px;color:#7E8A93;
+  }
+  .cover .dates .brand{color:var(--spark);font-weight:500;}
+  .clarity-line{position:absolute;right:-10px;bottom:40px;width:640px;opacity:.9;}
+
+  /* ---------- SLIDE 2 : DAY DIVIDER ---------- */
+  .divider{background:var(--fog);}
+  .divider .eyebrow{color:var(--slate);}
+  .divider .eyebrow::before{background:var(--slate);}
+  .rail{display:flex;gap:8px;margin-top:26px;align-items:center;}
+  .rail-seg{height:6px;flex:1;border-radius:6px;background:var(--fog-dim);position:relative;}
+  .rail-seg.done{background:var(--signal);opacity:.35;}
+  .rail-seg.active{background:var(--signal);}
+  .rail-seg.active::after{
+    content:"";position:absolute;top:-5px;right:0;width:16px;height:16px;border-radius:50%;
+    background:var(--signal);box-shadow:0 0 0 4px rgba(217,119,87,.18);
+  }
+  .rail-labels{display:flex;gap:8px;margin-top:10px;}
+  .rail-labels span{flex:1;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--slate);text-align:left;}
+  .divider h1{font-size:46px;margin-top:34px;color:var(--ink);}
+  .divider h1 .num{color:var(--signal);}
+  .divider .obj{font-size:16px;color:var(--slate);margin-top:16px;max-width:520px;line-height:1.6;}
+  .divider .tags{display:flex;gap:10px;margin-top:auto;flex-wrap:wrap;}
+  .tag{
+    font-family:'IBM Plex Mono',monospace;font-size:12px;padding:7px 13px;border-radius:20px;
+    background:var(--white);border:1px solid var(--fog-dim);color:var(--ink);
+  }
+
+  /* ---------- SLIDE 3 : WORKFLOW SCHEMA ---------- */
+  .schema{background:var(--fog);}
+  .schema .eyebrow{color:var(--slate);}
+  .schema .eyebrow::before{background:var(--slate);}
+  .schema h2{font-size:30px;margin-top:14px;color:var(--ink);}
+  .flow{display:flex;align-items:center;justify-content:space-between;margin-top:auto;margin-bottom:auto;gap:6px;}
+  .node{
+    background:var(--white);border-radius:12px;padding:18px 14px;width:150px;text-align:center;
+    border:1px solid var(--fog-dim);
+  }
+  .node.highlight{border-color:var(--signal);box-shadow:0 0 0 3px rgba(217,119,87,.12);}
+  .node svg{width:30px;height:30px;margin-bottom:10px;}
+  .node p{font-family:'Space Grotesk',sans-serif;font-size:13.5px;font-weight:600;color:var(--ink);}
+  .node span{display:block;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--slate);margin-top:4px;}
+  .arrow{flex:0 0 22px;color:var(--slate);opacity:.5;}
+
+  /* ---------- SLIDE 4 : PROMPT CARD ---------- */
+  .promptslide{background:var(--ink);color:var(--fog);}
+  .promptslide .eyebrow{color:var(--signal-bright);}
+  .promptslide .eyebrow::before{background:var(--signal-bright);}
+  .promptslide h2{font-size:28px;margin-top:14px;color:var(--white);}
+  .code-card{
+    margin-top:24px;background:#0B0F14;border-radius:12px;border:1px solid #263140;
+    overflow:hidden;flex:1;
+  }
+  .code-head{
+    display:flex;align-items:center;gap:8px;padding:12px 16px;border-bottom:1px solid #263140;
+  }
+  .dot{width:9px;height:9px;border-radius:50%;}
+  .dot.r{background:#EB5757;} .dot.y{background:#F2A93B;} .dot.g{background:#D97757;}
+  .code-head span{margin-left:10px;font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:#7E8A93;}
+  .code-body{padding:20px 22px;font-family:'IBM Plex Mono',monospace;font-size:13.5px;line-height:1.75;color:#C9D4D9;}
+  .code-body .k{color:var(--signal-bright);}
+  .code-body .v{color:var(--spark);}
+  .copybtn{
+    margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--signal-bright);
+    background:transparent;border:1px solid #2E3B47;border-radius:7px;padding:4px 10px;cursor:pointer;
+  }
+  .copybtn:hover{border-color:var(--signal-bright);}
+
+  /* ---------- SLIDE 5 : LIVRABLE ---------- */
+  .deliver{background:var(--fog);}
+  .deliver .eyebrow{color:var(--slate);}
+  .deliver .eyebrow::before{background:var(--slate);}
+  .deliver h2{font-size:30px;margin-top:14px;color:var(--ink);}
+  .checklist{margin-top:28px;display:flex;flex-direction:column;gap:14px;max-width:560px;}
+  .check{
+    display:flex;align-items:flex-start;gap:14px;background:var(--white);
+    border:1px solid var(--fog-dim);border-radius:12px;padding:16px 18px;
+  }
+  .check .box{
+    flex:0 0 20px;height:20px;border-radius:6px;border:2px solid var(--signal);margin-top:2px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .check .box::after{content:"";width:10px;height:7px;border-left:2px solid var(--signal);border-bottom:2px solid var(--signal);transform:rotate(-45deg) translate(1px,-1px);}
+  .check p{font-size:14.5px;color:var(--ink);font-weight:500;}
+  .check span{display:block;font-size:12.5px;color:var(--slate);margin-top:2px;}
+
+  /* ---------- NAV ---------- */
+  .navdots{
+    position:absolute;bottom:22px;left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:20;
+  }
+  .navdot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;transition:.3s;}
+  .navdot.on{background:var(--signal-bright);width:22px;border-radius:4px;}
+  .clickzone{position:absolute;top:0;bottom:0;width:14%;z-index:15;cursor:pointer;}
+  .clickzone.left{left:0;} .clickzone.right{right:0;}
+  .hint{
+    position:absolute;top:22px;right:26px;font-family:'IBM Plex Mono',monospace;font-size:11px;
+    color:rgba(255,255,255,.4);z-index:20;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .slide{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="deck" id="deck">
+
+    <!-- SLIDE 1 — COVER -->
+    <div class="slide cover active" data-i="0">
+      <div class="eyebrow">Formations4data · Eurêka Services</div>
+      <h1>Maîtrisez l'Analyse<br>des Données <span>avec Claude</span></h1>
+      <p class="sub">Cinq jours pour transformer une donnée brute en décision claire — avec Claude comme copilote à chaque étape.</p>
+      <div class="dates">13 → 17 JUILLET 2026 &nbsp;·&nbsp; <span class="brand">EN DIRECT SUR TEAMS</span></div>
+      <svg class="clarity-line" viewBox="0 0 640 160" fill="none">
+        <path id="cline" d="M0,90 L20,70 L40,105 L60,60 L80,115 L100,75 L120,95 L145,55
+          C 220,20 300,140 400,80 C 460,45 520,80 640,60"
+          stroke="#F0A48D" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="640" cy="60" r="6" fill="#F0A48D"/>
+        <circle cx="640" cy="60" r="12" fill="#F0A48D" opacity="0.18"/>
+      </svg>
+    </div>
+
+    <!-- SLIDE 2 — DAY DIVIDER -->
+    <div class="slide divider" data-i="1">
+      <div class="eyebrow">Parcours de la semaine</div>
+      <div class="rail">
+        <div class="rail-seg done"></div>
+        <div class="rail-seg active"></div>
+        <div class="rail-seg"></div>
+        <div class="rail-seg"></div>
+        <div class="rail-seg"></div>
+      </div>
+      <div class="rail-labels"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span></div>
+      <h1><span class="num">Jour 02 —</span> Excel &amp; Power BI</h1>
+      <p class="obj">Deux projets portfolio complets, augmentés par Claude : un audit Excel réel et un dashboard Power BI orienté décision.</p>
+      <div class="tags">
+        <div class="tag">Nettoyage de données</div>
+        <div class="tag">Tableaux croisés</div>
+        <div class="tag">DAX</div>
+        <div class="tag">Synthèse exécutive</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 — WORKFLOW SCHEMA -->
+    <div class="slide schema" data-i="2">
+      <div class="eyebrow">Le fil rouge de la semaine</div>
+      <h2>Le workflow complet d'un data analyst</h2>
+      <div class="flow">
+        <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="9" x2="9" y2="20"/></svg><p>Donnée brute</p><span>fichiers, API, BDD</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="1.6"><path d="M4 4l16 16M4 20L20 4" stroke-linecap="round"/></svg><p>Nettoyage</p><span>doublons, formats</span></div>
+        <div class="arrow">→</div>
+        <div class="node highlight"><svg viewBox="0 0 24 24" fill="none" stroke="#D97757" stroke-width="1.6"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><p>Analyse</p><span>avec Claude</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="1.6"><path d="M4 20V10M12 20V4M20 20v14" stroke-linecap="round"/></svg><p>Visualisation</p><span>dashboard</span></div>
+        <div class="arrow">→</div>
+        <div class="node"><svg viewBox="0 0 24 24" fill="none" stroke="#5B6472" stroke-width="1.6"><path d="M5 12l5 5L20 7" stroke-linecap="round" stroke-linejoin="round"/></svg><p>Décision</p><span>recommandation</span></div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 — PROMPT CARD -->
+    <div class="slide promptslide" data-i="3">
+      <div class="eyebrow">Ressource du jour</div>
+      <h2>Prompt prêt à l'emploi — audit de fichier</h2>
+      <div class="code-card">
+        <div class="code-head">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <span>prompt_audit_excel.txt</span>
+          <button class="copybtn" onclick="copyPrompt(this)">Copier</button>
+        </div>
+        <div class="code-body" id="promptText">Tu es un <span class="k">data analyst senior</span>.<br>
+Voici un extrait de mon fichier (colonnes : <span class="v">centre, mois, stock_debut, stock_fin, ruptures</span>).<br><br>
+1. Identifie les centres avec un taux de rupture <span class="v">&gt; 20%</span> ce mois.<br>
+2. Explique ta méthode de calcul en une phrase.<br>
+3. Propose <span class="v">3 recommandations</span> concrètes et actionnables.<br><br>
+Réponds en français, dans un langage compréhensible par un <span class="k">directeur non-technique</span>.</div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5 — LIVRABLE -->
+    <div class="slide deliver" data-i="4">
+      <div class="eyebrow">À soumettre avant le live</div>
+      <h2>Livrables du Jour 02</h2>
+      <div class="checklist">
+        <div class="check"><div class="box"></div><div><p>Fichier Excel nettoyé + tableau croisé dynamique</p><span>Rupture de stock par centre, avec synthèse en 3 phrases</span></div></div>
+        <div class="check"><div class="box"></div><div><p>Dashboard Power BI fonctionnel</p><span>Au moins 3 visuels répondant à une question centrale</span></div></div>
+        <div class="check"><div class="box"></div><div><p>Slide de synthèse exécutive</p><span>Rédigée avec Claude, 1 page, langage business</span></div></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="clickzone left" onclick="prevSlide()"></div>
+  <div class="clickzone right" onclick="nextSlide()"></div>
+  <div class="hint">← → pour naviguer</div>
+  <div class="navdots" id="navdots"></div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  let current = 0;
+  const dotsWrap = document.getElementById('navdots');
+  slides.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className = 'navdot' + (i===0?' on':'');
+    d.onclick = ()=>goTo(i);
+    dotsWrap.appendChild(d);
+  });
+  function render(){
+    slides.forEach((s,i)=>{
+      s.classList.remove('active','prev');
+      if(i===current) s.classList.add('active');
+      else if(i<current) s.classList.add('prev');
+    });
+    document.querySelectorAll('.navdot').forEach((d,i)=>d.classList.toggle('on', i===current));
+  }
+  function goTo(i){ current = Math.max(0, Math.min(slides.length-1, i)); render(); }
+  function nextSlide(){ if(current < slides.length-1) goTo(current+1); }
+  function prevSlide(){ if(current > 0) goTo(current-1); }
+  document.addEventListener('keydown', e=>{
+    if(e.key === 'ArrowRight') nextSlide();
+    if(e.key === 'ArrowLeft') prevSlide();
+  });
+  function copyPrompt(btn){
+    const text = document.getElementById('promptText').innerText;
+    navigator.clipboard?.writeText(text);
+    const old = btn.textContent;
+    btn.textContent = 'Copié ✓';
+    setTimeout(()=>btn.textContent = old, 1400);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,557 @@
+{
+  "day": 3,
+  "title": "Coding : SQL, Python, R",
+  "date": "2026-07-15",
+  "objective": "Écrire et comprendre de vraies requêtes SQL, construire un pipeline Python complet, découvrir R — avec un seul fil rouge (le risque de crédit d'une institution de microfinance) et une discipline de vérification qui ne relâche jamais la garde face au code généré par l'IA.",
+  "deliverables": [
+    "Un notebook Python reproductible (import → nettoyage → analyse → visualisation)",
+    "Une analyse R sur le même jeu de données",
+    "Les requêtes SQL du cas microfinance, commentées et expliquées"
+  ],
+  "chapters": [
+    { "title": "Ouverture", "minutes": 3, "firstSlideId": "cover" },
+    { "title": "Le programme de la semaine", "minutes": 3, "firstSlideId": "programme" },
+    { "title": "Concepts — SQL avec Claude", "minutes": 22, "firstSlideId": "quand-sql-python-r" },
+    { "title": "Atelier — cas microfinance, requêtes SQL", "minutes": 15, "firstSlideId": "cas-mfi-intro" },
+    { "title": "Concepts — Python pour la data", "minutes": 15, "firstSlideId": "pipeline-python-schema" },
+    { "title": "Concepts — R avec Claude", "minutes": 10, "firstSlideId": "r-vs-python" },
+    { "title": "Reproductibilité & Git", "minutes": 13, "firstSlideId": "reproductibilite-probleme" },
+    { "title": "Le vibe coding, avec esprit critique", "minutes": 10, "firstSlideId": "vibe-coding-definition" },
+    { "title": "Atelier — pipeline Python complet", "minutes": 15, "firstSlideId": "cas-mfi-pipeline-intro" },
+    { "title": "Résumé & livrables", "minutes": 5, "firstSlideId": "resume-jour3" },
+    { "title": "Clôture", "minutes": 2, "firstSlideId": "cloture" }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Jour 03 · Formations4data",
+      "title": ["Coding avec Claude —", "SQL, Python, R"],
+      "highlight": "SQL, Python, R",
+      "subtitle": "Un seul cas — le risque de crédit d'une institution de microfinance — traversé en SQL puis en Python. Avec une règle simple : jamais de code qu'on ne comprend pas.",
+      "meta": "MAÎTRISEZ L'ANALYSE DES DONNÉES AVEC CLAUDE · 15 JUILLET 2026",
+      "metaHighlight": "15 JUILLET 2026",
+      "presenterNotes": "Annoncer le fil rouge de la journée dès l'ouverture — un seul cas, deux langages, pour montrer la continuité plutôt que trois blocs déconnectés."
+    },
+    {
+      "id": "programme",
+      "type": "day-map",
+      "eyebrow": "Notre semaine ensemble",
+      "title": "Le programme complet",
+      "activeDay": 3,
+      "days": [
+        { "num": "01", "title": "Découverte de l'écosystème Claude", "subtitle": "Dashboard publié en ligne" },
+        { "num": "02", "title": "Excel & Power BI boostés par Claude", "subtitle": "2 projets portfolio" },
+        { "num": "03", "title": "Coding : SQL, Python, R", "subtitle": "1 projet transversal" },
+        { "num": "04", "title": "Portfolio complet + stratégie carrière", "subtitle": "Site en ligne + plan 90 jours" },
+        { "num": "05", "title": "Présentation & lancement", "subtitle": "Ton plan des 90 jours démarre" }
+      ],
+      "presenterNotes": "Situer la journée : le virage \"code\" de la semaine, après deux jours d'outils no-code."
+    },
+    {
+      "id": "quand-sql-python-r",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 1",
+      "title": "SQL, Python ou R — pour quoi faire",
+      "rows": [
+        { "want": "Interroger une base de données directement", "tool": "SQL" },
+        { "want": "Construire un pipeline reproductible et complexe", "tool": "Python" },
+        { "want": "Faire des statistiques ou tests avancés rapidement", "tool": "R" }
+      ],
+      "presenterNotes": "Poser la carte mentale avant de plonger — les trois langages ne sont pas en compétition, ils répondent à des besoins différents."
+    },
+    {
+      "id": "pourquoi-sql-meme-avec-claude",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Pourquoi apprendre SQL, même si Claude peut l'écrire",
+      "lead": "Savoir lire une requête reste indispensable pour juger si le résultat est fiable.",
+      "items": [
+        { "num": "01", "title": "Vérifier plutôt que subir", "detail": "Comprendre une jointure permet de repérer une erreur avant qu'elle ne fausse une décision." },
+        { "num": "02", "title": "Discuter avec les équipes techniques", "detail": "Un minimum de vocabulaire SQL change la qualité des échanges avec les développeurs." },
+        { "num": "03", "title": "Optimiser un prompt", "detail": "Savoir ce qu'on veut demander précisément produit de meilleures requêtes générées." }
+      ],
+      "presenterNotes": "Répondre à l'objection implicite \"si Claude écrit le SQL, pourquoi l'apprendre\" dès le départ du chapitre."
+    },
+    {
+      "id": "anatomie-requete-sql",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 1",
+      "title": "L'anatomie d'une requête SQL",
+      "nodes": [
+        { "icon": "search", "label": "SELECT", "detail": "quelles colonnes" },
+        { "icon": "target", "label": "WHERE", "detail": "quels filtres" },
+        { "icon": "projects", "label": "JOIN", "detail": "quelles tables" },
+        { "icon": "table", "label": "GROUP BY", "detail": "quel regroupement", "highlight": true },
+        { "icon": "chart-bar", "label": "ORDER BY", "detail": "quel tri final" }
+      ],
+      "presenterNotes": "Ce schéma sert de carte de référence à réutiliser à chaque nouvelle requête de la journée."
+    },
+    {
+      "id": "inner-vs-left-join",
+      "type": "comparison",
+      "eyebrow": "Chapitre 1",
+      "title": "INNER JOIN ou LEFT JOIN",
+      "columns": [
+        {
+          "label": "INNER JOIN",
+          "items": ["Garde seulement les lignes qui correspondent dans les deux tables", "Risque de perdre des lignes sans le vouloir", "À utiliser quand on veut une correspondance stricte"]
+        },
+        {
+          "label": "LEFT JOIN",
+          "items": ["Garde toutes les lignes de la table de gauche", "Complète par NULL quand il n'y a pas de correspondance", "Le choix par défaut le plus sûr pour explorer"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Beaucoup de tutoriels enseignent INNER JOIN en premier — en pratique LEFT JOIN évite de perdre silencieusement des lignes, donc on le pose comme réflexe par défaut."
+    },
+    {
+      "id": "piege-produit-cartesien",
+      "type": "data-table",
+      "eyebrow": "Chapitre 1",
+      "title": "Le piège du produit cartésien",
+      "lead": "Un JOIN sans condition ON associe chaque ligne de la première table à CHAQUE ligne de la seconde.",
+      "columns": ["Table A", "Table B", "Résultat sans ON"],
+      "rows": [
+        { "cells": ["1 000 lignes", "5 000 lignes", "5 000 000 lignes"], "critical": true },
+        { "cells": ["+ une 3e table de 10 000 lignes", "", "50 000 000 000 lignes"], "critical": true }
+      ],
+      "presenterNotes": "Chiffres volontairement spectaculaires — l'objectif est que personne n'oublie jamais une clause ON après cette slide."
+    },
+    {
+      "id": "toujours-un-on",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Le réflexe qui évite le piège",
+      "items": [
+        { "num": "01", "title": "Toujours une clause ON explicite", "detail": "Jamais de virgule à la place d'un vrai JOIN." },
+        { "num": "02", "title": "Filtrer avant de croiser si possible", "detail": "Réduire chaque table avant la jointure limite les dégâts en cas d'erreur." },
+        { "num": "03", "title": "Vérifier le nombre de lignes après jointure", "detail": "Un compte qui explose est le premier signal d'alerte à surveiller." }
+      ],
+      "presenterNotes": "Trois réflexes simples, à répéter comme un mantra pour ce chapitre."
+    },
+    {
+      "id": "fenetres-row-rank-dense",
+      "type": "data-table",
+      "eyebrow": "Chapitre 1",
+      "title": "ROW_NUMBER, RANK, DENSE_RANK — sur une égalité",
+      "lead": "Deux valeurs à égalité en position 4 : voici ce que donne chaque fonction pour elles et pour la ligne suivante.",
+      "columns": ["Fonction", "Comportement sur l'égalité", "Résultat (4e, 5e position)"],
+      "rows": [
+        { "cells": ["ROW_NUMBER()", "Départage arbitrairement, jamais d'égalité", "4, 5"], "critical": false },
+        { "cells": ["RANK()", "Même rang, puis un saut", "4, 4, 6"], "critical": true },
+        { "cells": ["DENSE_RANK()", "Même rang, sans saut", "4, 4, 5"], "critical": false }
+      ],
+      "presenterNotes": "La ligne RANK() est marquée car c'est la source de confusion la plus fréquente — le saut de 4 à 6 surprend presque tout le monde la première fois."
+    },
+    {
+      "id": "group-by-vs-window",
+      "type": "comparison",
+      "eyebrow": "Chapitre 1",
+      "title": "GROUP BY ou fonction fenêtre",
+      "columns": [
+        {
+          "label": "GROUP BY",
+          "items": ["Résume plusieurs lignes en une seule", "On perd le détail individuel", "Parfait pour un total ou une moyenne"]
+        },
+        {
+          "label": "Fonction fenêtre (OVER)",
+          "items": ["Calcule sur un groupe sans perdre le détail", "Chaque ligne garde sa place", "Idéal pour un classement ou un cumul"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "La distinction clé : GROUP BY réduit le nombre de lignes, une fonction fenêtre non — c'est souvent ce qui débloque la compréhension."
+    },
+    {
+      "id": "lag-lead-comparaison",
+      "type": "code-card",
+      "eyebrow": "Chapitre 1",
+      "title": "Comparer un mois au précédent avec LAG",
+      "filename": "requete_lag.sql",
+      "code": "-- Demande à Claude :\n<k>\"Écris une requête qui calcule la variation du montant en retard\n(colonne montant_retard) par rapport au mois précédent, pour chaque agence.\nUtilise LAG() et explique la clause OVER.\"</k>",
+      "presenterNotes": "Montrer que le prompt peut directement demander la fonction ET l'explication de la clause OVER dans la même requête."
+    },
+    {
+      "id": "dedoublonner-row-number",
+      "type": "code-card",
+      "eyebrow": "Chapitre 1",
+      "title": "Dédoublonner avec ROW_NUMBER",
+      "filename": "requete_dedoublonnage.sql",
+      "code": "-- Demande à Claude :\n<k>\"J'ai des doublons dans ma table prêts (même id_pret plusieurs fois).\nÉcris une requête qui garde une seule ligne par id_pret\n(la plus récente selon date_maj), avec ROW_NUMBER et un CTE.\"</k>",
+      "presenterNotes": "Ce pattern (CTE + ROW_NUMBER + filtre rn=1) revient tellement souvent qu'il vaut la peine de le mémoriser, pas seulement de le copier."
+    },
+    {
+      "id": "demander-explication-requete",
+      "type": "code-card",
+      "eyebrow": "Chapitre 1",
+      "title": "Faire expliquer une requête qu'on ne comprend pas",
+      "filename": "prompt_expliquer_sql.txt",
+      "code": "Voici une requête que je ne comprends pas entièrement :\n<v>[coller la requête]</v>\n\nExplique-la <k>clause par clause</k>, dans l'ordre d'exécution réel\n(pas l'ordre d'écriture). Signale si une clause te semble risquée.",
+      "presenterNotes": "Rappeler que l'ordre d'exécution SQL (FROM/JOIN puis WHERE puis GROUP BY puis SELECT) diffère de l'ordre d'écriture — Claude peut lever cette confusion classique."
+    },
+    {
+      "id": "cas-mfi-intro",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Le risque de crédit d'une institution de microfinance",
+      "lead": "Un portefeuille de prêts à auditer avec les indicateurs standards du secteur — exemple pédagogique construit pour l'exercice, pas un audit d'institution réelle.",
+      "items": [
+        { "num": "01", "title": "L'indicateur clé : le PAR30", "detail": "La part du portefeuille avec au moins 30 jours de retard de paiement." },
+        { "num": "02", "title": "Ta mission", "detail": "Écrire la requête SQL qui calcule ce taux par agence, puis continuer l'analyse en Python cet après-midi." }
+      ],
+      "presenterNotes": "Poser le vocabulaire métier (PAR30) une seule fois clairement — il sera réutilisé toute la journée sans le redéfinir chaque fois."
+    },
+    {
+      "id": "cas-mfi-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "La table des prêts, telle que reçue",
+      "columns": ["ID prêt", "Agence", "Montant", "Jours de retard"],
+      "rows": [
+        { "cells": ["PRET-5521", "Goma", "800 000 FC", "0"], "critical": false },
+        { "cells": ["PRET-5522", "Goma", "1 200 000 FC", "45"], "critical": true },
+        { "cells": ["PRET-5523", "Bukavu", "650 000 FC", "12"], "critical": false },
+        { "cells": ["PRET-5524", "Bukavu", "2 400 000 FC", "97"], "critical": true }
+      ],
+      "presenterNotes": "Deux prêts au-delà de 30 jours de retard (PRET-5522 et PRET-5524) — ce sont eux que la requête PAR30 doit isoler."
+    },
+    {
+      "id": "cas-mfi-prompt-par30",
+      "type": "code-card",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "La requête PAR30 par agence",
+      "filename": "requete_par30.sql",
+      "code": "-- Demande à Claude :\n<k>\"Écris une requête qui calcule le PAR30 par agence :\nmontant total en retard de plus de 30 jours divisé par montant total du portefeuille.\nTable prets (agence, montant, jours_retard). Explique chaque partie.\"</k>",
+      "presenterNotes": "Faire écrire la requête en direct puis vérifier manuellement le calcul sur les 4 lignes de la slide précédente — la vérification manuelle sur un petit échantillon est la meilleure garantie de confiance."
+    },
+    {
+      "id": "cas-mfi-checkpoint",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 2 — Checkpoint",
+      "value": 18,
+      "suffix": "%",
+      "label": "du portefeuille de l'agence de Bukavu dépasse le seuil PAR30 dans notre exercice",
+      "context": "Le seuil d'alerte généralement retenu dans le secteur est autour de 5% — un signal qui justifierait une revue des dossiers de cette agence.",
+      "presenterNotes": "Ancrer le chiffre dans un repère métier réel (seuil ~5%) pour que l'exercice ne reste pas un calcul abstrait."
+    },
+    {
+      "id": "pipeline-python-schema",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 3",
+      "title": "Le pipeline Python, en un schéma",
+      "nodes": [
+        { "icon": "database", "label": "Importer", "detail": "pandas.read_csv" },
+        { "icon": "clean", "label": "Nettoyer", "detail": "types, doublons" },
+        { "icon": "search", "label": "Analyser", "detail": "groupby, agrégats" },
+        { "icon": "chart-bar", "label": "Visualiser", "detail": "matplotlib / seaborn", "highlight": true }
+      ],
+      "presenterNotes": "Ce schéma structure tout l'après-midi — chaque bloc de concepts qui suit correspond à une étape ici."
+    },
+    {
+      "id": "pandas-loc-vs-chained",
+      "type": "comparison",
+      "eyebrow": "Chapitre 3",
+      "title": "Le piège de l'indexation chaînée",
+      "columns": [
+        {
+          "label": "Indexation chaînée",
+          "items": ["df[df.x == 1]['y'] = 100", "Peut échouer silencieusement", "pandas ne garantit pas vue ou copie"]
+        },
+        {
+          "label": ".loc en un seul appel",
+          "items": ["df.loc[df.x == 1, 'y'] = 100", "Comportement toujours prévisible", "Le réflexe recommandé par la documentation pandas"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Le message SettingWithCopyWarning fait peur au début — expliquer qu'il existe justement pour prévenir ce piège précis."
+    },
+    {
+      "id": "piege-inplace-true",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3",
+      "title": "inplace=True, moins utile qu'il ne paraît",
+      "lead": "Un réflexe très répandu, mais qui mérite d'être questionné.",
+      "items": [
+        { "num": "01", "title": "Ne fait presque jamais gagner en performance", "detail": "Une copie est créée en interne dans la plupart des cas malgré tout." },
+        { "num": "02", "title": "Modifie silencieusement la variable d'origine", "detail": "Source classique de bug quand une fonction reçoit un dataframe partagé." },
+        { "num": "03", "title": "Empêche le chaînage de méthodes", "detail": "inplace=True renvoie None, donc impossible d'enchaîner une autre opération derrière." }
+      ],
+      "presenterNotes": "pandas prévoit de dépréciplayer ce paramètre dans les prochaines versions majeures — autant prendre le bon réflexe dès maintenant."
+    },
+    {
+      "id": "views-vs-copies",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Vue ou copie — pourquoi ça compte",
+      "items": [
+        { "num": "01", "title": "Une vue partage la mémoire avec l'original", "detail": "Modifier la vue peut modifier le dataframe source sans le vouloir." },
+        { "num": "02", "title": "Une copie est totalement indépendante", "detail": "Utiliser .copy() explicitement quand on veut vraiment une copie." },
+        { "num": "03", "title": "Le seul moyen d'être sûr : un seul appel .loc", "detail": "Évite d'avoir à deviner ce que pandas a choisi de faire." }
+      ],
+      "presenterNotes": "Pas besoin d'aller plus loin que cette intuition pour un niveau débutant/intermédiaire."
+    },
+    {
+      "id": "pandas-groupby-agg",
+      "type": "code-card",
+      "eyebrow": "Chapitre 3",
+      "title": "Regrouper et agréger avec pandas",
+      "filename": "prompt_pandas_groupby.txt",
+      "code": "Sur mon dataframe <v>prets</v> (colonnes : agence, montant, jours_retard),\nécris le code pandas qui calcule le <k>PAR30 par agence</k>,\nla même métrique que ce matin en SQL. Utilise .loc, pas d'indexation chaînée.",
+      "presenterNotes": "Faire le lien explicite avec la requête SQL du matin — même métrique, même résultat attendu, langage différent."
+    },
+    {
+      "id": "data-viz-python-example",
+      "type": "code-card",
+      "eyebrow": "Chapitre 3",
+      "title": "Un premier graphique avec seaborn",
+      "filename": "prompt_visualisation_python.txt",
+      "code": "Trace un graphique en barres du <v>PAR30 par agence</v> avec seaborn,\nen utilisant une palette <k>adaptée au daltonisme</k> (viridis ou équivalent),\net trie les agences de la plus risquée à la moins risquée.",
+      "presenterNotes": "Réutiliser volontairement le réflexe d'accessibilité vu au Jour 2 — montrer que ce n'est pas propre à Power BI."
+    },
+    {
+      "id": "visualiser-decision",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 3",
+      "title": "matplotlib ou seaborn, vite",
+      "rows": [
+        { "want": "Un graphique rapide pour explorer soi-même", "tool": "matplotlib" },
+        { "want": "Un graphique statistique déjà stylé", "tool": "seaborn" },
+        { "want": "Un graphique interactif à partager", "tool": "plotly" }
+      ],
+      "presenterNotes": "Pas besoin de trancher définitivement — juste donner un repère rapide pour ne pas hésiter au moment de coder."
+    },
+    {
+      "id": "r-vs-python",
+      "type": "comparison",
+      "eyebrow": "Chapitre 4",
+      "title": "R, pourquoi en plus de Python",
+      "columns": [
+        {
+          "label": "Python",
+          "items": ["Polyvalent, pipelines complets", "Écosystème plus large hors statistiques", "Standard de fait en entreprise"]
+        },
+        {
+          "label": "R",
+          "items": ["Pensé nativement pour la statistique", "Tests statistiques très rapides à écrire", "Toujours dominant en recherche académique"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Ne pas opposer les deux comme un choix exclusif — beaucoup d'analystes gardent R pour les stats et Python pour le reste."
+    },
+    {
+      "id": "r-stats-descriptives",
+      "type": "code-card",
+      "eyebrow": "Chapitre 4",
+      "title": "Statistiques descriptives en R",
+      "filename": "prompt_r_stats.txt",
+      "code": "Sur mon dataframe <v>prets</v> (colonnes : agence, montant, jours_retard),\nécris le code R qui donne moyenne, médiane et écart-type de <k>jours_retard</k>\npar agence, avec dplyr. Explique chaque fonction utilisée.",
+      "presenterNotes": "Montrer la syntaxe dplyr (%>%) comme une autre façon de penser un pipeline, en écho au schéma Python vu plus tôt."
+    },
+    {
+      "id": "r-test-simple",
+      "type": "code-card",
+      "eyebrow": "Chapitre 4",
+      "title": "Un test statistique simple, expliqué",
+      "filename": "prompt_r_test.txt",
+      "code": "Je veux savoir si le retard moyen diffère significativement entre les agences\nde Goma et Bukavu. Écris un test t en R et explique en une phrase\nce que signifie le résultat, <k>sans jargon statistique</k>.",
+      "presenterNotes": "L'objectif n'est pas de maîtriser les tests statistiques en une slide, mais de savoir en demander un et en comprendre la conclusion."
+    },
+    {
+      "id": "reproductibilite-probleme",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 5",
+      "value": 15,
+      "suffix": "%",
+      "label": "seulement des notebooks réexécutés produisent exactement le même résultat, selon plusieurs études",
+      "context": "La cause la plus fréquente : des cellules exécutées dans le désordre, avec un état caché qui ne survit pas à un redémarrage.",
+      "presenterNotes": "Chiffre volontairement inquiétant pour justifier la discipline qui suit — citer la fourchette (5-15%) plutôt qu'un chiffre unique, par honnêteté sur l'incertitude."
+    },
+    {
+      "id": "redemarrer-tout-executer",
+      "type": "step-list",
+      "eyebrow": "Chapitre 5",
+      "title": "La discipline minimale : redémarrer et tout exécuter",
+      "steps": [
+        { "title": "Avant de partager un notebook", "detail": "Redémarrer le noyau et exécuter toutes les cellules dans l'ordre" },
+        { "title": "Si une erreur apparaît", "detail": "C'est le signe qu'une cellule dépendait d'un état caché — à corriger avant de partager" },
+        { "title": "Une fois propre", "detail": "Le notebook peut être considéré comme reproductible" }
+      ],
+      "presenterNotes": "Cette seule habitude règle la majorité des problèmes de reproductibilité rencontrés en pratique."
+    },
+    {
+      "id": "fixer-seeds",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Fixer les seeds aléatoires",
+      "lead": "Dès qu'un traitement utilise du hasard (échantillonnage, split train/test), le résultat doit être reproductible.",
+      "items": [
+        { "num": "01", "title": "Un seed par bibliothèque", "detail": "Il n'existe pas de seed global universel — chaque outil a le sien à fixer." },
+        { "num": "02", "title": "Documenter le choix dans le notebook", "detail": "Une simple note en markdown suffit : \"seed fixé à 42 pour la reproductibilité\"." }
+      ],
+      "presenterNotes": "Petit détail technique mais qui évite une question classique : \"pourquoi j'obtiens un résultat différent en relançant ?\""
+    },
+    {
+      "id": "environment-files",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Figer les versions des outils utilisés",
+      "items": [
+        { "num": "01", "title": "requirements.txt en Python", "detail": "Liste des bibliothèques avec leur version exacte." },
+        { "num": "02", "title": "environment.yml avec Conda", "detail": "Même principe, en incluant aussi la version de Python elle-même." }
+      ],
+      "presenterNotes": "Message simple : un notebook qui fonctionne aujourd'hui doit encore fonctionner dans six mois — figer les versions le permet."
+    },
+    {
+      "id": "git-minimum-analyste",
+      "type": "step-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Git, le strict minimum pour un analyste",
+      "steps": [
+        { "title": "clone puis status", "detail": "Récupérer un projet, voir ce qui a changé" },
+        { "title": "add puis commit", "detail": "Sélectionner et enregistrer un instantané de son travail" },
+        { "title": "push puis pull", "detail": "Envoyer son travail, récupérer celui des autres" }
+      ],
+      "presenterNotes": "Volontairement minimaliste — rebase, cherry-pick et GitFlow sont hors sujet pour ce niveau, à ne surtout pas introduire ici."
+    },
+    {
+      "id": "commit-cest-quoi",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 5",
+      "title": "Un commit, concrètement",
+      "items": [
+        { "num": "01", "title": "Une photo de ton projet à un instant donné", "detail": "Pas juste le fichier modifié — tout l'état du projet à ce moment." },
+        { "num": "02", "title": "Un message clair, pas \"update\"", "detail": "Ce message est ce qui rendra ton historique utile dans six mois." }
+      ],
+      "presenterNotes": "Lien direct avec le Jour 1 : c'est exactement ce que l'apprenant a déjà fait en poussant son premier dashboard sur GitHub, sans forcément le nommer."
+    },
+    {
+      "id": "vibe-coding-definition",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 6",
+      "title": "Le vibe coding, c'est quoi exactement",
+      "lead": "Un terme récent pour une pratique déjà courante : coder en guidant l'IA plutôt qu'en écrivant chaque ligne.",
+      "items": [
+        { "num": "01", "title": "On décrit l'intention", "detail": "Plutôt que la syntaxe exacte à taper." },
+        { "num": "02", "title": "L'IA génère, on vérifie", "detail": "La vérification devient la compétence centrale, pas la frappe au clavier." }
+      ],
+      "presenterNotes": "Cadrer positivement — ce n'est pas de la paresse, c'est un changement de compétence centrale : de \"écrire\" à \"vérifier\"."
+    },
+    {
+      "id": "echecs-silencieux",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 6",
+      "value": 45,
+      "suffix": "%",
+      "label": "des scripts générés par IA qui s'exécutent sans erreur contiendraient un résultat mathématiquement faux, selon certaines études",
+      "context": "Le code qui tourne sans message d'erreur n'est pas une preuve de justesse — c'est justement le cas le plus dangereux, car rien n'alerte visuellement.",
+      "presenterNotes": "Chiffre à citer avec prudence (source secondaire, pas une étude officielle unique) — l'idée à retenir compte plus que le chiffre exact : \"ça tourne\" ne veut pas dire \"c'est juste\"."
+    },
+    {
+      "id": "protocole-verification-ia",
+      "type": "step-list",
+      "eyebrow": "Chapitre 6",
+      "title": "Le protocole de vérification, pas juste \"fais attention\"",
+      "steps": [
+        { "title": "Vérifier sur un petit échantillon connu", "detail": "Calculer le résultat à la main sur 3-4 lignes et comparer" },
+        { "title": "Vérifier les comptes avant/après", "detail": "Le nombre de lignes après une jointure ou un filtre doit avoir un sens" },
+        { "title": "Reposer la question à tête reposée", "detail": "Demander à Claude de relire son propre résultat d'un œil critique" },
+        { "title": "Adapter l'effort au risque", "detail": "Une exploration rapide n'exige pas le même niveau de vérification qu'un chiffre présenté à la direction" }
+      ],
+      "presenterNotes": "Ce protocole est directement transférable à toute la semaine, pas seulement au code — le répéter renforce l'habitude."
+    },
+    {
+      "id": "exercice-reperer-erreur",
+      "type": "code-card",
+      "eyebrow": "Chapitre 6 — Exercice",
+      "title": "Trouve l'erreur glissée dans ce code",
+      "filename": "exercice_bug_cache.py",
+      "code": "par30 = prets[prets.jours_retard > 30]\ntaux = len(par30) / len(prets) * 100\nprint(f\"PAR30 : {taux}%\")\n\n# Le calcul du PAR30 utilise normalement le <k>montant</k>\n# en retard, pas le <v>nombre de prêts</v> en retard.",
+      "presenterNotes": "L'erreur : ce code calcule un taux de PRÊTS en retard, pas un taux de MONTANT en retard — la vraie définition du PAR30. Laisser l'apprenant chercher avant de révéler la réponse en direct."
+    },
+    {
+      "id": "cas-mfi-pipeline-intro",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 7 — Le cas du jour",
+      "title": "Retour au cas microfinance, version pipeline complet",
+      "lead": "Même portefeuille de prêts que ce matin — cette fois avec le regard critique qu'on vient de construire.",
+      "items": [
+        { "num": "01", "title": "Import et nettoyage", "detail": "Reprendre le fichier, vérifier les types de colonnes." },
+        { "num": "02", "title": "Analyse avec vérification", "detail": "Comparer le résultat Python au résultat SQL du matin — ils doivent correspondre." }
+      ],
+      "presenterNotes": "Le point de vérification croisée SQL/Python est volontaire — si les deux résultats diffèrent, c'est le signal qu'une erreur s'est glissée quelque part."
+    },
+    {
+      "id": "cas-mfi-import-nettoyage",
+      "type": "code-card",
+      "eyebrow": "Chapitre 7 — Le cas du jour",
+      "title": "Importer et typer correctement",
+      "filename": "prompt_import_mfi.txt",
+      "code": "Importe <v>prets.csv</v> avec pandas.\nVérifie que jours_retard et montant sont bien de type numérique,\npas du texte. Signale toute valeur manquante avant de continuer.",
+      "presenterNotes": "Rappeler que les colonnes numériques importées comme texte sont un des pièges les plus fréquents et les plus silencieux."
+    },
+    {
+      "id": "cas-mfi-analyse-groupby",
+      "type": "code-card",
+      "eyebrow": "Chapitre 7 — Le cas du jour",
+      "title": "Recalculer le PAR30 et vérifier contre le SQL du matin",
+      "filename": "prompt_verification_croisee.txt",
+      "code": "Calcule le PAR30 par agence avec pandas (même définition que ce matin :\nmontant en retard >30j / montant total). Compare ton résultat au tableau\nSQL du matin : <v>[coller les chiffres SQL]</v>. Signale tout écart.",
+      "presenterNotes": "Moment pédagogique clé de la journée : la vérification croisée SQL/Python matérialise concrètement le protocole de vérification enseigné plus tôt."
+    },
+    {
+      "id": "cas-mfi-visualisation",
+      "type": "step-list",
+      "eyebrow": "Chapitre 7 — Le cas du jour",
+      "title": "Visualiser le résultat final",
+      "steps": [
+        { "title": "Un graphique en barres, PAR30 par agence", "detail": "Palette accessible, trié du plus risqué au moins risqué" },
+        { "title": "Une ligne de seuil à 5%", "detail": "Repère visuel immédiat pour situer chaque agence" }
+      ],
+      "presenterNotes": "Réinvestir directement les principes de visualisation et d'accessibilité vus au Jour 2, sur un jeu de données différent."
+    },
+    {
+      "id": "cas-mfi-resultat-final",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 7 — Checkpoint final",
+      "value": 2,
+      "label": "méthodes différentes (SQL et Python), un seul et même résultat vérifié",
+      "context": "C'est cette correspondance, pas la sophistication du code, qui rend ce résultat présentable à une direction.",
+      "presenterNotes": "Boucler la boucle du fil rouge de la journée avant le résumé final."
+    },
+    {
+      "id": "resume-jour3",
+      "type": "principle-list",
+      "eyebrow": "Résumé",
+      "title": "Ce qu'on retient du Jour 03",
+      "items": [
+        { "num": "01", "title": "Comprendre avant de faire confiance", "detail": "Que ce soit une jointure SQL ou un DataFrame pandas." },
+        { "num": "02", "title": "\"Ça tourne\" n'est pas \"c'est juste\"", "detail": "La vérification est la compétence centrale du vibe coding." },
+        { "num": "03", "title": "Git et la reproductibilité ne sont pas optionnels", "detail": "Même pour un notebook personnel, l'habitude évite bien des pertes de temps." }
+      ],
+      "presenterNotes": "Trois idées simples à faire répéter à voix haute par les apprenants avant de passer aux livrables."
+    },
+    {
+      "id": "livrables",
+      "type": "deliverable-checklist",
+      "eyebrow": "À soumettre avant le live",
+      "title": "Livrables du Jour 03",
+      "items": [
+        { "title": "Requêtes SQL du cas microfinance", "detail": "Commentées, avec l'explication de chaque clause" },
+        { "title": "Notebook Python reproductible", "detail": "Redémarré et exécuté en entier avant l'envoi" },
+        { "title": "Analyse R", "detail": "Statistiques descriptives et un test simple, sur le même jeu de données" }
+      ],
+      "presenterNotes": "Rappeler la contrainte \"redémarré et exécuté en entier\" — c'est un critère de correction, pas juste une bonne pratique facultative."
+    },
+    {
+      "id": "cloture",
+      "type": "cover",
+      "eyebrow": "À ce soir",
+      "title": ["Rendez-vous en", "live sur Teams"],
+      "highlight": "live sur Teams",
+      "subtitle": "Questions, blocages SQL/Python/R, et retour sur le protocole de vérification. Demain : on assemble tout en un projet de portfolio complet.",
+      "meta": "FORMATIONS4DATA · JOUR 04 DEMAIN À LA MÊME HEURE",
+      "metaHighlight": "JOUR 04 DEMAIN À LA MÊME HEURE",
+      "presenterNotes": "Teaser du Jour 4 : on ne rajoute plus de nouvel outil, on assemble tout ce qui a été vu pour en faire un vrai projet de portfolio."
+    }
+  ]
+}

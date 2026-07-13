@@ -1,0 +1,596 @@
+{
+  "day": 2,
+  "title": "Excel & Power BI boostés par Claude",
+  "date": "2026-07-14",
+  "objective": "Nettoyer un dataset réel avec Claude in Excel, comprendre la modélisation Power BI, et construire un dashboard décisionnel accessible — à partir d'un cas concret de programme d'aide (transferts monétaires) suivi du début à la fin de la journée.",
+  "deliverables": [
+    "Fichier Excel nettoyé + tableau croisé dynamique, avec synthèse en 3 phrases",
+    "Dashboard Power BI fonctionnel avec au moins 3 visuels répondant à une question centrale",
+    "Slide de synthèse exécutive rédigée avec Claude, 1 page, langage business"
+  ],
+  "chapters": [
+    { "title": "Ouverture", "minutes": 3, "firstSlideId": "cover" },
+    { "title": "Le programme de la semaine", "minutes": 3, "firstSlideId": "programme" },
+    { "title": "Concepts — comprendre & nettoyer la donnée", "minutes": 28, "firstSlideId": "pourquoi-deux-outils" },
+    { "title": "Atelier — cas ONG, nettoyage Excel", "minutes": 22, "firstSlideId": "cas-ong-intro" },
+    { "title": "Concepts — Power BI, modélisation & storytelling", "minutes": 30, "firstSlideId": "excel-vs-powerbi" },
+    { "title": "Atelier — dashboard Power BI, suite du cas ONG", "minutes": 20, "firstSlideId": "cas-ong-modele" },
+    { "title": "Résumé & livrables", "minutes": 5, "firstSlideId": "resume-jour2" },
+    { "title": "Clôture", "minutes": 2, "firstSlideId": "cloture" }
+  ],
+  "slides": [
+    {
+      "id": "cover",
+      "type": "cover",
+      "eyebrow": "Jour 02 · Formations4data",
+      "title": ["Excel & Power BI", "boostés par Claude"],
+      "highlight": "boostés par Claude",
+      "subtitle": "Aujourd'hui, un vrai dataset sale du début à la fin : nettoyage Excel, puis dashboard Power BI. Deux livrables portfolio en une seule session.",
+      "meta": "MAÎTRISEZ L'ANALYSE DES DONNÉES AVEC CLAUDE · 14 JUILLET 2026",
+      "metaHighlight": "14 JUILLET 2026",
+      "presenterNotes": "Rappeler la promesse concrète : à la fin de la session, un dataset nettoyé ET un dashboard publié, construits sur le même cas du début à la fin."
+    },
+    {
+      "id": "programme",
+      "type": "day-map",
+      "eyebrow": "Notre semaine ensemble",
+      "title": "Le programme complet",
+      "activeDay": 2,
+      "days": [
+        { "num": "01", "title": "Découverte de l'écosystème Claude", "subtitle": "Dashboard publié en ligne" },
+        { "num": "02", "title": "Excel & Power BI boostés par Claude", "subtitle": "2 projets portfolio" },
+        { "num": "03", "title": "Coding : SQL, Python, R", "subtitle": "1 projet transversal" },
+        { "num": "04", "title": "Portfolio complet + stratégie carrière", "subtitle": "Site en ligne + plan 90 jours" },
+        { "num": "05", "title": "Présentation & lancement", "subtitle": "Ton plan des 90 jours démarre" }
+      ],
+      "presenterNotes": "Situer la journée dans le parcours complet — on est sur le 2e jour, le premier jour \"outils du quotidien\"."
+    },
+    {
+      "id": "pourquoi-deux-outils",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Pourquoi Excel ET Power BI le même jour",
+      "lead": "Ce ne sont pas deux concurrents — c'est une chaîne. Excel nettoie et structure, Power BI raconte et décide.",
+      "items": [
+        { "num": "01", "title": "Excel reste roi pour l'exploration rapide", "detail": "Ouvrir un fichier, repérer un problème, tester une formule en quelques secondes." },
+        { "num": "02", "title": "Power BI prend le relais pour la décision", "detail": "Dès qu'un chiffre doit être suivi dans le temps ou partagé à plusieurs personnes." },
+        { "num": "03", "title": "Claude accélère les deux étapes", "detail": "Nettoyage plus rapide dans Excel, mesures DAX expliquées en clair dans Power BI." }
+      ],
+      "presenterNotes": "Cadrer la journée : pas un choix entre les deux outils, mais une chaîne de production qu'on va suivre de bout en bout sur un seul cas."
+    },
+    {
+      "id": "types-donnees",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Comprendre la donnée avant de la nettoyer",
+      "lead": "Toute donnée n'a pas la même origine ni la même fiabilité — ça change la façon de la traiter.",
+      "items": [
+        { "num": "01", "title": "Fichiers plats (Excel, CSV)", "detail": "Le plus courant sur le terrain — mais aussi le plus exposé aux erreurs de saisie manuelle." },
+        { "num": "02", "title": "Exports d'applications ou de bases de données", "detail": "Plus structurés, mais souvent avec des noms de colonnes techniques à traduire." },
+        { "num": "03", "title": "Données collectées en ligne ou par formulaire", "detail": "Format généralement propre, mais attention aux doublons de soumission." },
+        { "num": "04", "title": "La qualité n'est jamais garantie par la source", "detail": "Même un export officiel peut contenir des incohérences — on vérifie toujours." }
+      ],
+      "presenterNotes": "Poser les bases avant d'entrer dans le concret : d'où vient la donnée influence comment on la nettoie."
+    },
+    {
+      "id": "dataset-propre",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "À quoi ressemble un dataset \"propre\"",
+      "lead": "Quatre critères simples à vérifier avant de faire confiance à un fichier.",
+      "items": [
+        { "num": "01", "title": "Cohérent", "detail": "Un même format pour une même information partout dans le fichier." },
+        { "num": "02", "title": "Complet", "detail": "Pas de trous inexpliqués — ou alors clairement justifiés." },
+        { "num": "03", "title": "Unique", "detail": "Chaque ligne représente une seule observation réelle, sans doublon caché." },
+        { "num": "04", "title": "À la bonne granularité", "detail": "Le niveau de détail correspond à la question qu'on veut répondre." }
+      ],
+      "presenterNotes": "Donner une grille de lecture réutilisable toute la semaine, pas seulement pour Excel."
+    },
+    {
+      "id": "pieges-excel-terrain",
+      "type": "data-table",
+      "eyebrow": "Chapitre 1",
+      "title": "Les pièges classiques d'un fichier terrain",
+      "lead": "Quatre problèmes qui reviennent presque à chaque fois — les deux premiers cassent silencieusement tes formules.",
+      "columns": ["Ligne du fichier", "Problème détecté", "Conséquence"],
+      "rows": [
+        { "cells": ["Centre_Kivu1 · mars/région fusionnées", "Cellules fusionnées", "Impossible à trier ou filtrer correctement"], "critical": true },
+        { "cells": ["03/2026 saisi en texte", "Date stockée comme texte", "Trié par ordre alphabétique, pas chronologique"], "critical": true },
+        { "cells": ["\" Kinshasa\" avec espace", "Espace invisible en début de cellule", "RECHERCHEV échoue sans message d'erreur visible"], "critical": true },
+        { "cells": ["CD / RDC / Congo", "Trois façons d'écrire le même pays", "Un TCD compte 3 pays au lieu d'1"], "critical": false }
+      ],
+      "presenterNotes": "Montrer ces 4 lignes à l'écran depuis un vrai fichier si possible — l'objectif est que ça résonne comme du déjà-vu pour les apprenants."
+    },
+    {
+      "id": "doublons-manquants",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Quatre familles de problèmes à repérer",
+      "lead": "Presque tous les soucis de qualité rentrent dans une de ces quatre cases.",
+      "items": [
+        { "num": "01", "title": "Doublons", "detail": "Même observation saisie deux fois, parfois avec une légère variation d'orthographe." },
+        { "num": "02", "title": "Valeurs manquantes", "detail": "Case vide, ou pire, remplie par un faux zéro qui fausse les moyennes." },
+        { "num": "03", "title": "Formats incohérents", "detail": "Dates, nombres, unités qui changent de forme d'une ligne à l'autre." },
+        { "num": "04", "title": "Incohérences logiques", "detail": "Une date de fin antérieure à la date de début, un total qui ne correspond pas au détail." }
+      ],
+      "presenterNotes": "Cette grille sert de checklist mentale avant de lancer n'importe quel nettoyage, avec ou sans IA."
+    },
+    {
+      "id": "anonymiser-avant-upload",
+      "type": "principle-list",
+      "eyebrow": "Rappel sécurité",
+      "title": "Avant de coller ce fichier dans Claude",
+      "lead": "On l'a vu au Jour 1 — ça vaut particulièrement pour un vrai fichier terrain avec des noms de personnes.",
+      "items": [
+        { "num": "01", "title": "Retire les identifiants directs", "detail": "Noms, numéros de téléphone, numéros de pièce d'identité — remplace par un ID anonyme." },
+        { "num": "02", "title": "Garde une table de correspondance à part", "detail": "Hors de la conversation avec Claude, pour pouvoir retrouver qui est qui plus tard si besoin." }
+      ],
+      "presenterNotes": "Rappel court et concret juste avant de manipuler un vrai dataset avec des données personnelles — pas une nouvelle leçon, juste un réflexe qu'on active."
+    },
+    {
+      "id": "nettoyer-avec-claude",
+      "type": "code-card",
+      "eyebrow": "Chapitre 1",
+      "title": "Le prompt de nettoyage type",
+      "filename": "prompt_nettoyage_excel.txt",
+      "code": "Tu es un <k>data analyst senior</k>.\nVoici un extrait de mon fichier (colonnes : <v>centre, date, region, montant</v>).\n\n1. Identifie les doublons, valeurs manquantes et formats incohérents.\n2. Propose une version corrigée, colonne par colonne.\n3. Explique chaque correction en une phrase, sans jargon technique.\n\nRéponds en français, dans un tableau clair.",
+      "presenterNotes": "Ce prompt sert de trame réutilisable toute la journée — insister sur la demande d'explication, pas juste le résultat."
+    },
+    {
+      "id": "avant-apres-terrain",
+      "type": "before-after",
+      "eyebrow": "Chapitre 1",
+      "title": "Le même fichier, avant et après",
+      "before": {
+        "label": "AVANT",
+        "rows": [
+          "centre_1 ; 03/2026 ; kivu ; 45000",
+          "Centre 1 ;  mars ; KIVU ; 45 000",
+          "CENTRE-1 ; 2026-03 ; Kivu ; N/A"
+        ]
+      },
+      "after": {
+        "label": "APRÈS",
+        "rows": [
+          { "primary": "Centre 1 · Mars 2026", "secondary": "45 000 FC" },
+          { "primary": "Centre 2 · Mars 2026", "secondary": "38 000 FC" },
+          { "primary": "Centre 3 · Mars 2026", "secondary": "52 000 FC" }
+        ]
+      },
+      "presenterNotes": "Même mécanique que le Jour 1 mais sur un exemple différent — l'idée est que ce geste devienne un réflexe, pas un tour de magie ponctuel."
+    },
+    {
+      "id": "recherchex-vs-recherchev",
+      "type": "comparison",
+      "eyebrow": "Chapitre 1",
+      "title": "RECHERCHEV ou RECHERCHEX ?",
+      "columns": [
+        {
+          "label": "RECHERCHEV",
+          "items": ["Cherche uniquement vers la droite", "Casse si on insère une colonne", "Pas de recherche par défaut vers la gauche"]
+        },
+        {
+          "label": "RECHERCHEX",
+          "items": ["Cherche dans n'importe quelle direction", "Résiste à l'insertion de colonnes", "Gère nativement les valeurs non trouvées"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Message simple : RECHERCHEX est la version moderne, à privilégier par défaut sauf contrainte de compatibilité avec une vieille version d'Excel."
+    },
+    {
+      "id": "si-imbriques",
+      "type": "code-card",
+      "eyebrow": "Chapitre 1",
+      "title": "SI imbriqués et SOMME.SI.ENS, expliqués simplement",
+      "filename": "prompt_formule_excel.txt",
+      "code": "J'ai une colonne <v>taux_rupture</v>. Écris-moi une formule qui affiche :\n<k>\"Critique\"</k> si le taux dépasse 20%,\n<k>\"À surveiller\"</k> s'il est entre 10% et 20%,\n<k>\"OK\"</k> sinon.\n\nExplique chaque partie de la formule en une ligne, comme si je ne connaissais pas encore SI.",
+      "presenterNotes": "Montrer que Claude peut aussi bien écrire la formule qu'expliquer pédagogiquement chaque bloc — utile pour progresser, pas juste pour copier-coller."
+    },
+    {
+      "id": "tcd-concept",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 1",
+      "title": "Du fichier brut à l'information utile",
+      "nodes": [
+        { "icon": "database", "label": "Données brutes", "detail": "fichier terrain" },
+        { "icon": "clean", "label": "Nettoyage", "detail": "avec Claude" },
+        { "icon": "table", "label": "TCD", "detail": "tableau croisé" },
+        { "icon": "chart-bar", "label": "Insight", "detail": "prêt pour décision", "highlight": true }
+      ],
+      "presenterNotes": "Le tableau croisé dynamique n'est pas une fin en soi — c'est l'étape qui transforme des lignes en réponse à une question."
+    },
+    {
+      "id": "kpi-bons-criteres",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 1",
+      "title": "Qu'est-ce qu'un bon KPI",
+      "lead": "Un chiffre affiché n'est pas automatiquement un indicateur utile.",
+      "items": [
+        { "num": "01", "title": "Mesurable de façon fiable", "detail": "À partir de données qu'on collecte vraiment, pas d'une estimation approximative." },
+        { "num": "02", "title": "Relié à une décision", "detail": "Si le chiffre change, qu'est-ce que ça change dans l'action ?" },
+        { "num": "03", "title": "Compréhensible sans jargon", "detail": "Un directeur non-technique doit pouvoir l'interpréter en une phrase." }
+      ],
+      "presenterNotes": "Ce filtre sert de test avant d'ajouter n'importe quel chiffre à un dashboard — évite la surcharge de métriques décoratives."
+    },
+    {
+      "id": "kpi-decision",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 1",
+      "title": "Relier un KPI à une vraie question",
+      "rows": [
+        { "want": "Savoir si un centre est en rupture de stock", "tool": "Taux de rupture mensuel" },
+        { "want": "Savoir si un programme cible bien les bons ménages", "tool": "Taux de ciblage correct" },
+        { "want": "Savoir si un dashboard est encore utile", "tool": "Fréquence de consultation" }
+      ],
+      "presenterNotes": "Répéter le même mécanisme que le Jour 1 pour ancrer l'habitude de partir de la question avant de choisir l'indicateur."
+    },
+    {
+      "id": "cas-ong-intro",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Un programme de transferts monétaires à auditer",
+      "lead": "Une ONG distribue une aide financière mensuelle à des ménages vulnérables. Le fichier de suivi contient exactement les pièges qu'on vient de voir — exemple pédagogique construit pour l'exercice, pas un vrai audit publié.",
+      "items": [
+        { "num": "01", "title": "L'objectif du programme", "detail": "Vérifier que l'aide arrive aux bons ménages, sans doublon ni sur-paiement." },
+        { "num": "02", "title": "Ta mission aujourd'hui", "detail": "Nettoyer le fichier, puis construire le dashboard qui répond à cette question pour le responsable programme." }
+      ],
+      "presenterNotes": "Poser le décor du fil rouge de la journée — un seul cas, suivi de A à Z, pour que le nettoyage et le dashboard se répondent."
+    },
+    {
+      "id": "cas-ong-donnees",
+      "type": "data-table",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Le fichier de suivi, tel que reçu",
+      "lead": "Repère les deux lignes qui posent vraiment problème avant de continuer.",
+      "columns": ["ID ménage", "Région", "Montant transféré", "Statut"],
+      "rows": [
+        { "cells": ["MEN-0231", "Kasaï", "45 000 FC", "Payé"], "critical": false },
+        { "cells": ["MEN-0231", "Kasaï", "45 000 FC", "Payé"], "critical": true },
+        { "cells": ["MEN-0198", "kasai", "180 000 FC", "Payé"], "critical": true },
+        { "cells": ["MEN-0304", "Tanganyika", "45 000 FC", "En attente"], "critical": false }
+      ],
+      "presenterNotes": "Ligne 2 : doublon exact du ménage MEN-0231. Ligne 3 : montant 4x supérieur à la norme, plus une variante d'orthographe de région — deux signaux différents à ne pas confondre."
+    },
+    {
+      "id": "cas-ong-prompt-nettoyage",
+      "type": "code-card",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Le prompt de nettoyage pour ce cas précis",
+      "filename": "prompt_audit_ong.txt",
+      "code": "Tu es un <k>data analyst senior</k> spécialisé en programmes humanitaires.\nVoici mon fichier de suivi (colonnes : <v>id_menage, region, montant, statut</v>).\n\n1. Identifie les doublons d'ID ménage.\n2. Repère les montants qui dépassent <v>2x la médiane</v> de la région.\n3. Uniformise l'orthographe des régions.\n4. Explique chaque anomalie en une phrase, pour un responsable programme non-technique.",
+      "presenterNotes": "Montrer qu'un prompt précis (seuil à 2x la médiane, pas juste \"trouve les erreurs\") donne un résultat bien plus exploitable."
+    },
+    {
+      "id": "cas-ong-resultat",
+      "type": "before-after",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Le fichier, avant et après audit",
+      "before": {
+        "label": "AVANT",
+        "rows": [
+          "MEN-0231 ; Kasaï ; 45000FC ; paye",
+          "MEN-0231 ; Kasaï ; 45000 ; PAYE",
+          "MEN-0198 ; kasai ; 180 000 ; Payé"
+        ]
+      },
+      "after": {
+        "label": "APRÈS",
+        "rows": [
+          { "primary": "MEN-0231 · Kasaï", "secondary": "45 000 FC" },
+          { "primary": "MEN-0198 · Kasaï — à vérifier", "secondary": "180 000 FC ⚠" },
+          { "primary": "MEN-0304 · Tanganyika", "secondary": "45 000 FC" }
+        ]
+      },
+      "presenterNotes": "Le doublon a disparu, l'orthographe est uniforme, et le montant anormal est conservé mais flagué pour vérification humaine — Claude ne supprime jamais une donnée suspecte sans le signaler."
+    },
+    {
+      "id": "cas-ong-tcd",
+      "type": "step-list",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "Construire le tableau croisé dynamique",
+      "steps": [
+        { "title": "Lignes : région", "detail": "Un ménage regroupé par région géographique" },
+        { "title": "Valeurs : somme des montants + comptage des ménages", "detail": "Pour voir le volume ET le montant en un coup d'œil" },
+        { "title": "Filtre : statut = Payé", "detail": "Se concentrer sur ce qui a effectivement été distribué" }
+      ],
+      "presenterNotes": "Dérouler la construction du TCD à l'écran en direct, en s'appuyant sur le fichier nettoyé de la slide précédente."
+    },
+    {
+      "id": "cas-ong-synthese",
+      "type": "code-card",
+      "eyebrow": "Chapitre 2 — Le cas du jour",
+      "title": "La synthèse exécutive en 3 phrases",
+      "filename": "prompt_synthese_ong.txt",
+      "code": "À partir de ce tableau croisé, rédige une synthèse de <v>3 phrases maximum</v> pour la direction :\n1. Ce qui fonctionne bien.\n2. Le point d'attention principal.\n3. Une recommandation concrète et actionnable.\n\nLangage <k>business</k>, zéro terme technique.",
+      "presenterNotes": "Insister sur la contrainte de 3 phrases — c'est ce qui force Claude (et l'apprenant) à prioriser plutôt qu'à tout lister."
+    },
+    {
+      "id": "cas-ong-checkpoint",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 2 — Checkpoint",
+      "value": 15,
+      "suffix": " min",
+      "label": "C'est le temps qu'a pris tout ce nettoyage, doublon et anomalie compris",
+      "context": "Le même travail à la main aurait demandé de croiser manuellement chaque ligne — plusieurs heures sur un vrai fichier de plusieurs milliers de ménages.",
+      "presenterNotes": "Marquer une pause avant de basculer vers Power BI — insister sur le contraste de temps, pas sur la performance de l'outil pour l'outil."
+    },
+    {
+      "id": "excel-vs-powerbi",
+      "type": "comparison",
+      "eyebrow": "Chapitre 3",
+      "title": "Excel ou Power BI, pour quoi faire",
+      "columns": [
+        {
+          "label": "Excel",
+          "items": ["Exploration rapide d'un fichier", "Analyse ponctuelle, usage personnel", "Pas besoin de suivi dans le temps"]
+        },
+        {
+          "label": "Power BI",
+          "items": ["Suivi récurrent, mis à jour régulièrement", "Partagé avec plusieurs personnes", "Plusieurs sources combinées en un seul modèle"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Le dashboard qu'on va construire répond exactement au cas où Power BI gagne : suivi récurrent, partagé avec la direction du programme."
+    },
+    {
+      "id": "modelisation-relations",
+      "type": "workflow-flow",
+      "eyebrow": "Chapitre 3",
+      "title": "Modéliser, c'est relier des tables séparées",
+      "nodes": [
+        { "icon": "table", "label": "Table ménages", "detail": "1 ligne / ménage" },
+        { "icon": "table", "label": "Table transferts", "detail": "1 ligne / paiement" },
+        { "icon": "projects", "label": "Relation", "detail": "clé commune", "highlight": true },
+        { "icon": "chart-bar", "label": "Modèle unique", "detail": "prêt pour les visuels" }
+      ],
+      "presenterNotes": "Insister sur l'idée qu'un bon modèle évite de dupliquer l'information région/ménage dans chaque table de transferts."
+    },
+    {
+      "id": "schema-etoile",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Le schéma en étoile, sans jargon",
+      "lead": "Le standard le plus simple pour organiser un modèle Power BI.",
+      "items": [
+        { "num": "01", "title": "Une table de faits au centre", "detail": "Les événements qu'on mesure — ici, chaque transfert effectué." },
+        { "num": "02", "title": "Des tables de dimensions autour", "detail": "Le contexte : ménage, région, date — chacune une seule fois." },
+        { "num": "03", "title": "Des relations qui les relient", "detail": "Pas de duplication d'information entre les tables." }
+      ],
+      "presenterNotes": "Se limiter à l'intuition visuelle de l'étoile — pas besoin d'aller plus loin en un jour d'introduction."
+    },
+    {
+      "id": "power-query",
+      "type": "step-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Power Query, le nettoyage en amont du modèle",
+      "steps": [
+        { "title": "Se connecter à la source", "detail": "Fichier, base de données, ou export d'application" },
+        { "title": "Transformer sans toucher au fichier d'origine", "detail": "Chaque étape est enregistrée et modifiable" },
+        { "title": "Charger dans le modèle", "detail": "Prêt pour les mesures DAX et les visuels" }
+      ],
+      "presenterNotes": "Message clé : Power Query garde une trace de chaque transformation, contrairement à un nettoyage manuel dans Excel qui écrase l'original."
+    },
+    {
+      "id": "power-query-vs-main",
+      "type": "comparison",
+      "eyebrow": "Chapitre 3",
+      "title": "Power Query ou nettoyage manuel",
+      "columns": [
+        {
+          "label": "À la main dans Excel",
+          "items": ["Rapide pour un fichier unique", "Aucune trace des étapes", "À refaire entièrement le mois suivant"]
+        },
+        {
+          "label": "Power Query",
+          "items": ["Étapes enregistrées et réutilisables", "Se rafraîchit automatiquement", "Rentable dès le 2e mois de données"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Rassurer : pour un usage ponctuel, Excel manuel reste légitime — Power Query devient rentable dès qu'un fichier se répète."
+    },
+    {
+      "id": "dax-mesures",
+      "type": "code-card",
+      "eyebrow": "Chapitre 3",
+      "title": "Une première mesure DAX, expliquée",
+      "filename": "prompt_dax_powerbi.txt",
+      "code": "Écris une mesure DAX qui calcule le <v>montant total transféré par région</v>,\nfiltré sur les paiements au statut <v>\"Payé\"</v>.\n\nExplique la mesure ligne par ligne, comme si j'apprenais DAX pour la première fois.",
+      "presenterNotes": "Faire écrire la mesure par Claude puis la lire ensemble ligne par ligne — l'objectif est de comprendre, pas seulement de copier."
+    },
+    {
+      "id": "dax-pieges",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Deux pièges DAX à connaître",
+      "lead": "Les deux causes les plus fréquentes d'un chiffre DAX qui semble faux.",
+      "items": [
+        { "num": "01", "title": "Le contexte de filtre change tout", "detail": "La même mesure peut donner un résultat différent selon les filtres actifs sur la page." },
+        { "num": "02", "title": "CALCULATE mal utilisé", "detail": "Ajouter un filtre sans comprendre qu'il remplace le contexte existant plutôt que de s'y ajouter." }
+      ],
+      "presenterNotes": "Rassurer : demander à Claude d'expliquer pourquoi un chiffre DAX paraît faux est un des usages les plus rentables de la journée."
+    },
+    {
+      "id": "choisir-visualisation",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 3",
+      "title": "Quel graphique pour quel message",
+      "rows": [
+        { "want": "Comparer des catégories entre elles", "tool": "Graphique en barres" },
+        { "want": "Montrer une évolution dans le temps", "tool": "Graphique en ligne" },
+        { "want": "Montrer une répartition d'un tout", "tool": "Graphique en anneau (max 4-5 parts)" },
+        { "want": "Localiser un phénomène géographiquement", "tool": "Carte" }
+      ],
+      "presenterNotes": "Insister sur la limite \"4-5 parts max\" pour les graphiques circulaires — au-delà, ils deviennent illisibles."
+    },
+    {
+      "id": "erreurs-visualisation",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Trois erreurs qui rendent un dashboard mensonger",
+      "lead": "Pas de mauvaise intention en général — juste des réflexes à corriger.",
+      "items": [
+        { "num": "01", "title": "Axe vertical tronqué", "detail": "Fait paraître une petite variation comme un changement énorme." },
+        { "num": "02", "title": "Effets 3D", "detail": "Déforme la perception des proportions réelles." },
+        { "num": "03", "title": "Camembert à 10 parts ou plus", "detail": "Impossible à comparer visuellement au-delà de 5 catégories." }
+      ],
+      "presenterNotes": "Ces trois erreurs sont très répandues dans les dashboards \"faits maison\" — les nommer aide à les repérer ensuite partout."
+    },
+    {
+      "id": "accessibilite-contraste",
+      "type": "comparison",
+      "eyebrow": "Chapitre 3 — Accessibilité",
+      "title": "Un dashboard que tout le monde peut lire",
+      "columns": [
+        {
+          "label": "Contraste insuffisant",
+          "items": ["Barres pâles sur fond clair", "Texte gris clair sur blanc", "Illisible en plein soleil ou en basse vue"]
+        },
+        {
+          "label": "Contraste conforme (WCAG 1.4.11)",
+          "items": ["Ratio d'au moins 3:1 pour les éléments graphiques", "Texte principal en ratio 4.5:1 minimum", "Lisible dans plus de conditions réelles"],
+          "winner": true
+        }
+      ],
+      "presenterNotes": "Norme concrète et vérifiable, pas juste \"fais joli\" — WCAG 1.4.11 s'applique spécifiquement aux barres et lignes de graphique, pas seulement au texte."
+    },
+    {
+      "id": "accessibilite-couleur-seule",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 3 — Accessibilité",
+      "title": "Ne jamais coder une info par la couleur seule",
+      "lead": "Environ 1 personne sur 12 a une forme de daltonisme — le rouge/vert est le cas le plus fréquent.",
+      "items": [
+        { "num": "01", "title": "Le problème", "detail": "\"Rouge = alerte, vert = OK\" devient invisible pour une partie du public." },
+        { "num": "02", "title": "La solution", "detail": "Ajouter une forme, un motif, ou une étiquette texte en plus de la couleur." }
+      ],
+      "presenterNotes": "Règle WCAG 1.4.1 — simple à appliquer une fois qu'on y pense : icône d'alerte en plus du rouge, pas le rouge seul."
+    },
+    {
+      "id": "palettes-daltoniens",
+      "type": "ecosystem-grid",
+      "eyebrow": "Chapitre 3 — Accessibilité",
+      "title": "Des palettes prêtes à l'emploi, sans droits",
+      "items": [
+        { "icon": "target", "title": "ColorBrewer", "detail": "Palettes cartographiques, filtre \"colorblind safe\"" },
+        { "icon": "chart-bar", "title": "Viridis", "detail": "Dégradé perceptuel uniforme, intégré à beaucoup d'outils" },
+        { "icon": "shield", "title": "Okabe-Ito", "detail": "8 couleurs qualitatives, conçues pour le daltonisme" },
+        { "icon": "check", "title": "Règle des 6 couleurs", "detail": "Au-delà, la distinction visuelle se dégrade pour tout le monde" }
+      ],
+      "presenterNotes": "Ces trois palettes sont gratuites et déjà intégrées ou importables dans Power BI, Excel, Python et R."
+    },
+    {
+      "id": "data-storytelling",
+      "type": "step-list",
+      "eyebrow": "Chapitre 3",
+      "title": "Construire l'histoire derrière les chiffres",
+      "steps": [
+        { "title": "Connaître son audience", "detail": "Un directeur non-technique n'a pas besoin de voir la mesure DAX" },
+        { "title": "Trouver le message clé", "detail": "Une seule idée principale, pas dix informations à la fois" },
+        { "title": "Structurer la démonstration", "detail": "Du contexte vers la conclusion, pas l'inverse" },
+        { "title": "Mettre en scène les chiffres", "detail": "Mettre en avant ce qui compte, estomper le reste" }
+      ],
+      "presenterNotes": "Le storytelling n'est pas de la décoration — c'est ce qui transforme un dashboard consulté une fois en outil utilisé chaque semaine."
+    },
+    {
+      "id": "cas-ong-modele",
+      "type": "step-list",
+      "eyebrow": "Chapitre 4 — Le cas du jour",
+      "title": "Construire le modèle du dashboard",
+      "steps": [
+        { "title": "Importer le fichier nettoyé du matin", "detail": "Le même fichier ONG, cette fois dans Power BI" },
+        { "title": "Créer la relation région ↔ transferts", "detail": "Une seule table de dimension région, pas de duplication" },
+        { "title": "Écrire les mesures de base avec Claude", "detail": "Montant total, nombre de ménages, montant moyen" }
+      ],
+      "presenterNotes": "Continuité volontaire avec le nettoyage Excel du matin — même fichier, même histoire, pour que la journée se sente comme un seul projet."
+    },
+    {
+      "id": "cas-ong-question-centrale",
+      "type": "decision-table",
+      "eyebrow": "Chapitre 4 — Le cas du jour",
+      "title": "La question centrale du programme",
+      "rows": [
+        { "want": "Le programme cible-t-il les bonnes régions ?", "tool": "Carte + montant par région" },
+        { "want": "Y a-t-il des paiements anormaux à vérifier ?", "tool": "Tableau des ménages flagués" },
+        { "want": "La distribution avance-t-elle comme prévu ?", "tool": "Jauge payés vs en attente" }
+      ],
+      "presenterNotes": "Rappeler que ces 3 questions sont directement héritées du contexte posé en tout début de chapitre 2 — rien n'est ajouté au hasard."
+    },
+    {
+      "id": "cas-ong-3-visuels",
+      "type": "principle-list",
+      "eyebrow": "Chapitre 4 — Le cas du jour",
+      "title": "Les 3 visuels retenus",
+      "lead": "Le minimum demandé dans le livrable — pas un de plus pour l'instant.",
+      "items": [
+        { "num": "01", "title": "Carte des montants par région", "detail": "Répond directement à la question de ciblage géographique." },
+        { "num": "02", "title": "Tableau des ménages flagués", "detail": "Rend visible ce que le nettoyage du matin a mis de côté pour vérification." },
+        { "num": "03", "title": "Jauge de progression des paiements", "detail": "Une lecture en 2 secondes de l'avancement du programme." }
+      ],
+      "presenterNotes": "Rappeler la contrainte du livrable : 3 visuels qui répondent à la question centrale, pas un dashboard tentaculaire."
+    },
+    {
+      "id": "cas-ong-personnaliser",
+      "type": "code-card",
+      "eyebrow": "Chapitre 4 — Le cas du jour",
+      "previewLabel": "→ aperçu du dashboard ONG personnalisé, à l'écran en direct",
+      "title": "Personnaliser le dashboard avec Claude",
+      "filename": "prompt_personnalisation_ong.txt",
+      "code": "J'aimerais que le dashboard utilise <k>ces couleurs</k> : <v>[tes couleurs, en gardant un bon contraste]</v>.\nPeux-tu adapter le design en gardant la structure des 3 visuels, et vérifier que les couleurs restent lisibles pour une personne daltonienne ?",
+      "presenterNotes": "Montrer qu'on peut demander la personnalisation ET la vérification d'accessibilité dans le même prompt — les deux ne s'opposent pas."
+    },
+    {
+      "id": "cas-ong-rapport",
+      "type": "code-card",
+      "eyebrow": "Chapitre 4 — Le cas du jour",
+      "title": "Le rapport décisionnel qui accompagne le dashboard",
+      "filename": "prompt_rapport_ong.txt",
+      "code": "Rédige le rapport qui accompagne ce dashboard, en <v>une page</v> :\n1. Contexte du programme, en 2 phrases.\n2. Ce que montrent les 3 visuels.\n3. Une recommandation pour le responsable programme.\n\nLangage <k>business</k>, aucune référence technique à Power BI ou DAX.",
+      "presenterNotes": "Ce rapport est le pont entre le dashboard technique et la personne qui va réellement prendre une décision à partir de lui."
+    },
+    {
+      "id": "cas-ong-resultat-final",
+      "type": "quote-stat",
+      "eyebrow": "Chapitre 4 — Checkpoint final",
+      "value": 3,
+      "label": "visuels qui répondent à la question centrale, publiés et partageables en fin de journée",
+      "context": "Depuis un fichier reçu en désordre ce matin jusqu'à un dashboard décisionnel — sur un seul cas, suivi de bout en bout.",
+      "presenterNotes": "Boucler la boucle sur le fil rouge de la journée avant de passer au résumé et aux livrables."
+    },
+    {
+      "id": "resume-jour2",
+      "type": "principle-list",
+      "eyebrow": "Résumé",
+      "title": "Ce qu'on retient du Jour 02",
+      "lead": "Trois idées à garder en tête avant de passer au coding demain.",
+      "items": [
+        { "num": "01", "title": "Nettoyer avant de visualiser, toujours", "detail": "Un dashboard magnifique sur des données sales reste un dashboard faux." },
+        { "num": "02", "title": "Un KPI répond à une question, pas l'inverse", "detail": "Partir de la décision à prendre, jamais du graphique qu'on a envie de faire." },
+        { "num": "03", "title": "L'accessibilité n'est pas une option", "detail": "Contraste et redondance d'information coûtent une slide à apprendre, zéro effort ensuite." }
+      ],
+      "presenterNotes": "Ce résumé sert de pont mental avant les livrables — trois phrases que l'apprenant doit pouvoir répéter de mémoire."
+    },
+    {
+      "id": "livrables",
+      "type": "deliverable-checklist",
+      "eyebrow": "À soumettre avant le live",
+      "title": "Livrables du Jour 02",
+      "items": [
+        { "title": "Fichier Excel nettoyé + tableau croisé dynamique", "detail": "Rupture ou anomalie par région, avec synthèse en 3 phrases" },
+        { "title": "Dashboard Power BI fonctionnel", "detail": "Au moins 3 visuels répondant à la question centrale du programme" },
+        { "title": "Slide de synthèse exécutive", "detail": "Rédigée avec Claude, 1 page, langage business" }
+      ],
+      "presenterNotes": "Rappeler clairement ce qui est attendu avant le live Teams du soir — les 3 livrables correspondent exactement aux 3 sorties produites pendant les ateliers."
+    },
+    {
+      "id": "cloture",
+      "type": "cover",
+      "eyebrow": "À ce soir",
+      "title": ["Rendez-vous en", "live sur Teams"],
+      "highlight": "live sur Teams",
+      "subtitle": "Questions, blocages Power BI, et découverte de vos dashboards ONG. Demain : SQL, Python et R, avec le même réflexe de vérification qu'aujourd'hui.",
+      "meta": "FORMATIONS4DATA · JOUR 03 DEMAIN À LA MÊME HEURE",
+      "metaHighlight": "JOUR 03 DEMAIN À LA MÊME HEURE",
+      "presenterNotes": "Clôturer en rappelant le rendez-vous du soir et en teasant le contenu du Jour 3 — coding, avec le même fil rouge de rigueur."
+    }
+  ]
+}
